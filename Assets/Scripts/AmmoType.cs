@@ -12,14 +12,14 @@ public class AmmoType : MonoBehaviour
     public void FireAmmo(float power)
     {
         GetComponent<Rigidbody>().useGravity = true;
-        if (currentAmmo == Ammo.Normal)
-        {
-            this.power = power;
 
-        }
-        else if (currentAmmo == Ammo.Heavy)
+        if (currentAmmo == Ammo.Heavy)
         {
             this.power = power * 3;
+        }
+        else
+        {
+            this.power = power;
         }
         Launch();
     }

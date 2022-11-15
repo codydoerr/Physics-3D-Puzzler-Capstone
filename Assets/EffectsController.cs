@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class EffectsController : MonoBehaviour
 {
-    public enum Effect {Gravity}
-    [SerializeField] float gravitySpeed;
-    [SerializeField] float radius;
-    [SerializeField] Effect effect;
-    [SerializeField] float destroyTime;
+    public enum Effect {Gravity};
+
+    [Header("General")]
+    [SerializeField] 
+    float 
+        destroyTime;
+    [SerializeField] 
+    Effect 
+        effect;
+    [Header("Gravity")]
+    [SerializeField] 
+    float 
+        gravitySpeed;
+    [SerializeField] 
+    float 
+        radius;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +37,9 @@ public class EffectsController : MonoBehaviour
     {
         if (effect.Equals(Effect.Gravity))
         {
-            if (other.gameObject.GetComponent<Rigidbody>() != null)
+            if (other.gameObject.GetComponent<Rigidbody>() != null && Vector3.Distance(other.GetComponent<Rigidbody>().position, transform.position) < radius)
             {
-                other.attachedRigidbody.AddRelativeForce((transform.position- other.gameObject.transform.position)*gravitySpeed);
+                other.attachedRigidbody.AddRelativeForce((transform.position - other.gameObject.transform.position)*gravitySpeed);
                 Debug.Log("moving" + other.gameObject.name);
             }
         }
