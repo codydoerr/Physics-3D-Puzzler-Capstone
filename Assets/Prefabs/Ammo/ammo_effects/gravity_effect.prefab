@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyTime: 10
   effect: 0
-  gravitySpeed: 5000
-  radius: 20
+  gravitySpeed: 50
+  radius: 500
 --- !u!135 &1005265385
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EffectsController : MonoBehaviour
 {
     public enum Effect {Gravity};
-
+    public GameObject parent;
     [Header("General")]
     [SerializeField] 
     float 
@@ -23,11 +23,18 @@ public class EffectsController : MonoBehaviour
 
 
     // Start is called before the first frame update
+    
     void Start()
     {
         Destroy(gameObject, destroyTime);
     }
-
+    private void Update()
+    {
+        if (parent == null)
+        {
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {

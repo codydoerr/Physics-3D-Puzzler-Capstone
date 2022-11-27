@@ -31,6 +31,7 @@ public class ShootingController : MonoBehaviour
         {
             if (!ammoLoaded)
             {
+                Destroy(shotAmmo);
                 shotAmmo = Instantiate(currentAmmo, loadPoint.transform.position, Quaternion.Euler(rotator.transform.rotation.eulerAngles.x, rotator.transform.rotation.eulerAngles.y, 0));
                 ammoLoaded = true;
             }

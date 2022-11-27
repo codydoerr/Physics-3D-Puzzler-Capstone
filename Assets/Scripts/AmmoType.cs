@@ -42,6 +42,7 @@ public class AmmoType : MonoBehaviour
     {
         if (currentAmmo == Ammo.Gravity)
         {
+            effectSpawn.GetComponent<EffectsController>().parent = this.gameObject;
             effectSpawn.SetActive(true);
             effectSpawn.transform.parent = null;
         }
