@@ -44,9 +44,9 @@ public class EffectsController : MonoBehaviour
     {
         if (effect.Equals(Effect.Gravity))
         {
-            if (other.gameObject.GetComponent<Rigidbody>() != null && Vector3.Distance(other.GetComponent<Rigidbody>().position, transform.position) < radius)
+            if (other.gameObject.GetComponent<Rigidbody>() != null)
             {
-                other.attachedRigidbody.AddRelativeForce((transform.position - other.gameObject.transform.position)*gravitySpeed);
+                other.attachedRigidbody.AddForce((transform.position - other.gameObject.transform.position)*gravitySpeed);
                 Debug.Log("moving" + other.gameObject.name);
             }
         }

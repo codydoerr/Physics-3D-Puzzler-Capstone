@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21692,24 +21692,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1479159823, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
-      propertyPath: aimZoomDelta
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1479159823, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
-      propertyPath: inventoryAmmo.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1479159823, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
-      propertyPath: inventoryAmmo.Array.data[0]
-      value: 
-      objectReference: {fileID: 1966743565730118755, guid: 3f51e7e5bf58f68478960001661cf173,
-        type: 3}
-    - target: {fileID: 1479159823, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
-      propertyPath: inventoryAmmo.Array.data[1]
-      value: 
-      objectReference: {fileID: 1966743565730118755, guid: ea71d01afcdba30478c8f08e5906972b,
-        type: 3}
     - target: {fileID: 2042315923641893297, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
       propertyPath: m_RootOrder
@@ -21769,6 +21751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042315924523115638, guid: a2a0db650b6671147a1dd3e271da196c,
+        type: 3}
+      propertyPath: field of view
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
