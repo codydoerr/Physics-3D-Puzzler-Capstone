@@ -9,7 +9,7 @@ public class BreakbleWall : MonoBehaviour
         if (
             GetComponent<Rigidbody>().isKinematic != false && 
             collision.gameObject.GetComponent<Rigidbody>() != null && 
-            Mathf.Abs(collision.gameObject.GetComponent<Rigidbody>().velocity.z) > 5
+            Mathf.Abs(collision.gameObject.GetComponent<Rigidbody>().velocity.z) > 5//hi
             )
         {
             GetComponent<Rigidbody>().isKinematic = false;
