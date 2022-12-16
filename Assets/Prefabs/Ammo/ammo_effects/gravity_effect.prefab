@@ -48,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bbd34bcb4aa3c84b981feb674d06d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
   destroyTime: 10
   effect: 0
-  gravitySpeed: 50
-  radius: 500
+  gravitySpeed: 500
+  radius: 5
 --- !u!135 &1005265385
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &-3465853489883934184
 ParticleSystem:
