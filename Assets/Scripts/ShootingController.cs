@@ -8,6 +8,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] GameObject rotator;
     [SerializeField] GameObject loadPoint;
     [SerializeField] GameObject[] inventoryAmmo;
+    [SerializeField] GameObject gM;
     [SerializeField] Camera camera;
     [SerializeField] float startingZoom;
     [SerializeField] float aimZoomDelta;
@@ -21,13 +22,13 @@ public class ShootingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gM = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !gM.GetComponent<GameManager>().isGamePaused())
         {
             if (!ammoLoaded)
             {
@@ -63,6 +64,7 @@ public class ShootingController : MonoBehaviour
             Debug.Log("Armed heavy_stone");
         }
     }
+
     private void SwitchAmmo(int type)
     {
         currentAmmo = inventoryAmmo[type];

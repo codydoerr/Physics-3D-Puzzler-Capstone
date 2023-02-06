@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoType : MonoBehaviour
 {
-    private enum Ammo {Normal,Heavy,Gravity};
+    private enum Ammo {Normal,Heavy,Gravity,Camera};
     [SerializeField] Ammo currentAmmo;
     bool effect;
     [SerializeField] GameObject effectSpawn;
@@ -37,6 +37,10 @@ public class AmmoType : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * power, ForceMode.Impulse);
         }
+        else if (currentAmmo == Ammo.Camera)
+        {
+            gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * power, ForceMode.Impulse);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -45,6 +49,9 @@ public class AmmoType : MonoBehaviour
             effectSpawn.GetComponent<EffectsController>().parent = this.gameObject;
             effectSpawn.SetActive(true);
             effectSpawn.transform.parent = null;
+        }else if(currentAmmo == Ammo.Camera)
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         }
     }
 }
