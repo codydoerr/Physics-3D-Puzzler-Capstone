@@ -8,6 +8,7 @@ public class AmmoType : MonoBehaviour
     [SerializeField] Ammo currentAmmo;
     bool effect;
     [SerializeField] GameObject effectSpawn;
+    [SerializeField] RenderTexture cameraRender;
     float power = 0;
     public void FireAmmo(float power)
     {
@@ -51,7 +52,12 @@ public class AmmoType : MonoBehaviour
             effectSpawn.transform.parent = null;
         }else if(currentAmmo == Ammo.Camera)
         {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            effectSpawn.SetActive(true);
+            effectSpawn.transform.rotation = Quaternion.EulerAngles((effectSpawn.transform.position - collision.GetContact(0).point).normalized);
+            effectSpawn.GetComponent<Camera>().targetTexture = cameraRender;
+
+
         }
     }
 }

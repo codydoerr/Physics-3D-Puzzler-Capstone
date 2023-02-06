@@ -7087,7 +7087,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1549380812}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MouseLook, Assembly-CSharp
         m_MethodName: SetMouseSens
         m_Mode: 0
@@ -24004,18 +24004,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9dee99a86268a4e9c81c7a75a2c82d, type: 3}
---- !u!114 &1549380812 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2042315924851569090, guid: a2a0db650b6671147a1dd3e271da196c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2042315924851569087}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41c1e360f46324941aca63448fa06ea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1553583960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32063,11 +32051,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1479159823, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
-      propertyPath: inventoryAmmo.Array.data[1]
-      value: 
-      objectReference: {fileID: 1966743565730118755, guid: 02b8ff4ec4c65044995a7a72cf0f29cc,
-        type: 3}
     - target: {fileID: 2042315923641893297, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
       propertyPath: m_RootOrder
