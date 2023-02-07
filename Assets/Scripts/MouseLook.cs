@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] float mouseSensitivity = 100f;
+    public float mouseSensitivity = 1f;
     [SerializeField] Transform playerBody;
     [SerializeField] Transform camera;
     float xRotation = 0f;
@@ -15,12 +15,15 @@ public class MouseLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-
+    public void SetMouseSens(float newSens)
+    {
+        mouseSensitivity = newSens;
+    }
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * 1000f * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * 1000f * mouseSensitivity * Time.deltaTime;
         playerBody.Rotate(Vector3.up * mouseX);
 
         xRotation -= mouseY;

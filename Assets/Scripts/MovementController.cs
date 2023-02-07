@@ -11,7 +11,8 @@ public class MovementController : MonoBehaviour
     float tempSpeedHoldForward;
     float tempSpeedHoldSide;
     Vector3 velocity;
-    [SerializeField] float gravity = -9.81f;
+    float gravity = -9.81f;
+    [SerializeField] float gravScale = 1f;
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
@@ -50,9 +51,9 @@ public class MovementController : MonoBehaviour
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * (gravity*gravScale));
         }
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += (gravity * gravScale) * Time.deltaTime;
         playerCharacterController.Move(velocity * Time.deltaTime);
 
     }
