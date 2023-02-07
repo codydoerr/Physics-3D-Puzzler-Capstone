@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoType : MonoBehaviour
 {
-    private enum Ammo {Normal,Heavy,Gravity,Camera};
+    public enum Ammo {Normal,Gravity,Camera};
     [SerializeField] Ammo currentAmmo;
     bool effect;
     [SerializeField] GameObject effectSpawn;
@@ -13,24 +13,16 @@ public class AmmoType : MonoBehaviour
     public void FireAmmo(float power)
     {
         GetComponent<Rigidbody>().useGravity = true;
-
-        if (currentAmmo == Ammo.Heavy)
-        {
-            this.power = power * 3;
-        }
-        else
-        {
-            this.power = power;
-        }
+        this.power = power;
         Launch();
+    }
+    public Ammo GetType()
+    {
+        return currentAmmo;
     }
     private void Launch()
     {
         if (currentAmmo == Ammo.Normal)
-        {
-            gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * power, ForceMode.Impulse);
-        }
-        else if (currentAmmo == Ammo.Heavy)
         {
             gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * power, ForceMode.Impulse);
         }
