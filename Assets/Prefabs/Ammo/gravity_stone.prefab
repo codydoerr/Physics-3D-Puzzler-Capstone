@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a32c658907a9e4ab4942b688b66cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAmmo: 2
+  currentAmmo: 1
   effectSpawn: {fileID: 8681441494256310155}
+  cameraRender: {fileID: 0}
 --- !u!54 &-4470871469893164671
 Rigidbody:
   m_ObjectHideFlags: 0
