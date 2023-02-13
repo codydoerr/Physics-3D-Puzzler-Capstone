@@ -8,7 +8,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] Transform playerBody;
     [SerializeField] Transform camera;
     float xRotation = 0f;
-
+    GameObject lastEnvironmentEnabled;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +29,19 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    }
+    private void FixedUpdate()
+    {
+        Vector3 fwd = transform.TransformDirection(camera.transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(camera.transform.position, fwd, out hit, 5f) && hit.collider.gameObject.GetComponent<EnvironmentController>()!=null)
+        {
+            lastEnvironmentEnabled = hit.collider.gameObject;
+            hit.collider.gameObject.GetComponent<EnvironmentController>().MakeUsable();
+        }
+        else if(hit.collider.gameObject.GetComponent<EnvironmentController>() != null)
+        {
+            hit.collider.gameObject.GetComponent<EnvironmentController>().MakeUnUsable();
+        }
     }
 }
