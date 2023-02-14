@@ -7,6 +7,7 @@ TagManager:
   - Rope
   - elevator
   - overgrown
+  - pellet
   layers:
   - Default
   - TransparentFX
