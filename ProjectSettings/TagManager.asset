@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Rope
   - elevator
+  - overgrown
+  - pellet
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Rope
   - Dynamic
   - Effect
-  - Safe
+  - Door
   - 
   - 
   - 

@@ -17,6 +17,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] float aimZoomDelta;
     bool ammoLoaded;
     GameObject placedCamera;
+    GameObject loadedAmmo;
     [SerializeField] float power;
     [SerializeField] float speedH = 2.0f;
     [SerializeField] float speedV = 2.0f;
@@ -31,7 +32,7 @@ public class ShootingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        bool isCamera = currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera;
         if (Input.GetKeyDown(KeyCode.Q) && !tabletPrefab.activeInHierarchy)
         {
             tabletPrefab.SetActive(true);
@@ -41,22 +42,35 @@ public class ShootingController : MonoBehaviour
             tabletPrefab.SetActive(false);
         }
 
-        if (Input.GetMouseButton(0) && !gM.GetComponent<GameManager>().isGamePaused())
+        if (Input.GetMouseButtonDown(0) && !gM.GetComponent<GameManager>().isGamePaused())
         {
             //change this to only destroy camera or gravity
             //other will destroy after 3 seconds
 
-            if (!ammoLoaded)
+            if (!ammoLoaded && isCamera)
             {
                 Destroy(placedCamera);
                 placedCamera = Instantiate(currentAmmo, loadPoint.transform.position, Quaternion.Euler(rotator.transform.rotation.eulerAngles.x, rotator.transform.rotation.eulerAngles.y, 0));
                 ammoLoaded = true;
             }
-            else if (ammoLoaded)
+            else if (!ammoLoaded)
             {
+                loadedAmmo = Instantiate(currentAmmo, loadPoint.transform.position, Quaternion.Euler(rotator.transform.rotation.eulerAngles.x, rotator.transform.rotation.eulerAngles.y, 0));
+                ammoLoaded = true;
+            }
+        }
+        else if (Input.GetMouseButton(0) && ammoLoaded)
+        {
                 camera.transform.localPosition = new Vector3(0, 0, aimZoomDelta);
+            if (placedCamera)
+            {
                 placedCamera.transform.position = loadPoint.transform.position;
                 placedCamera.transform.rotation = loadPoint.transform.rotation;
+            }
+            else
+            {
+                loadedAmmo.transform.position = loadPoint.transform.position;
+                loadedAmmo.transform.rotation = loadPoint.transform.rotation;
             }
         }
         else
@@ -69,9 +83,15 @@ public class ShootingController : MonoBehaviour
             if(currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera)
             {
                 tabletPrefab.SetActive(true);
+                ammoLoaded = false;
+                placedCamera.GetComponent<AmmoType>().FireAmmo(power);
+            }else
+            {
+                ammoLoaded = false;
+                loadedAmmo.GetComponent<AmmoType>().FireAmmo(power);
             }
-            ammoLoaded = false;
-            placedCamera.GetComponent<AmmoType>().FireAmmo(power);
+            placedCamera = null;
+            loadedAmmo = null;
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -81,10 +101,8 @@ public class ShootingController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-
             SwitchAmmo(1);
             Debug.Log("Armed heavy_stone");
-
         }
     }
 

@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1614456177731621459}
   - component: {fileID: -84636920260404460}
   - component: {fileID: -4470871469893164671}
+  - component: {fileID: -1415626138602465692}
   m_Layer: 0
   m_Name: normal_stone
-  m_TagString: Untagged
+  m_TagString: pellet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentAmmo: 0
+  effectSpawn: {fileID: 0}
+  cameraRender: {fileID: 0}
 --- !u!54 &-4470871469893164671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,3 +131,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &-1415626138602465692
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966743565730118755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
