@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23661694926743176}
   - component: {fileID: 136123875276269096}
   m_Layer: 0
-  m_Name: SM_Generic_TreeDead_01
+  m_Name: SM_Generic_TreeDead_01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
