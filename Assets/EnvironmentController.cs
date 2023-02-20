@@ -21,7 +21,6 @@ public class EnvironmentController : MonoBehaviour
     }
     public void MakeUnUsable()
     {
-
         isUsable = false;
     }
     // Update is called once per frame
@@ -37,9 +36,5 @@ public class EnvironmentController : MonoBehaviour
                 aMotor.motor = motor;
             }
         }
-    }
-    private void LateUpdate()
-    {
-        MakeUnUsable();
     }
 }
