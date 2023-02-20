@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5738,6 +5738,7 @@ MonoBehaviour:
   mus2: {fileID: 8300000, guid: 7a0a7241ae3eab14c8c7dc59109b3119, type: 3}
   mus3: {fileID: 0}
   musicElement: {fileID: 367273791}
+  audioSource: {fileID: 0}
 --- !u!1 &367548890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1381177987206152, guid: 207c9c337bf978e4e9be0b84e4bf3226,
@@ -17815,12 +17816,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9dee99a86268a4e9c81c7a75a2c82d, type: 3}
---- !u!4 &1120619885 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2042315924523115637, guid: a2a0db650b6671147a1dd3e271da196c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2042315924851569087}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1120789288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24743,28 +24738,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9dee99a86268a4e9c81c7a75a2c82d, type: 3}
---- !u!1 &1603971361 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2042315923641893302, guid: a2a0db650b6671147a1dd3e271da196c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2042315924851569087}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1603971369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603971361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec79625b71080542bdcb663c32949bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mus1: {fileID: 8300000, guid: e7595bbb8169b7a47b913595b8d7dda4, type: 3}
-  mus2: {fileID: 8300000, guid: 7a0a7241ae3eab14c8c7dc59109b3119, type: 3}
-  mus3: {fileID: 0}
-  musicElement: {fileID: 367273791}
 --- !u!1001 &1605049332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32453,10 +32426,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1479159825, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
-      propertyPath: m_Radius
-      value: 0.2
-      objectReference: {fileID: 0}
+    - target: {fileID: 1603971369, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
+      propertyPath: musicElement
+      value: 
+      objectReference: {fileID: 367273791}
     - target: {fileID: 2042315923641893297, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
       propertyPath: m_RootOrder
@@ -32512,21 +32485,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2042315923641893300, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2042315923641893302, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7865727251300331654, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 1120619885}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
 --- !u!1001 &2641973291797259085

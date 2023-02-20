@@ -38,4 +38,8 @@ public class EnvironmentController : MonoBehaviour
             }
         }
     }
+    private void LateUpdate()
+    {
+        MakeUnUsable();
+    }
 }

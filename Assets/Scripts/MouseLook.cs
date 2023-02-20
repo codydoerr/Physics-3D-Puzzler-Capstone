@@ -7,6 +7,7 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 1f;
     [SerializeField] Transform playerBody;
     [SerializeField] Transform camera;
+    [SerializeField] Transform bodyCenter;
     float xRotation = 0f;
     GameObject lastEnvironmentEnabled;
 
@@ -32,7 +33,7 @@ public class MouseLook : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 fwd = transform.TransformDirection(camera.transform.forward)*-1f;
+        Vector3 fwd = bodyCenter.transform.TransformDirection(bodyCenter.transform.forward);
         RaycastHit hit;
         if (!Physics.Raycast(camera.transform.position, fwd, out hit, 5f))
         {
@@ -43,10 +44,6 @@ public class MouseLook : MonoBehaviour
             lastEnvironmentEnabled = hit.collider.gameObject;
 
             hit.collider.gameObject.GetComponent<EnvironmentController>().MakeUsable();
-        }
-        else if(lastEnvironmentEnabled.GetComponent<EnvironmentController>() != null)
-        {
-              lastEnvironmentEnabled.GetComponent<EnvironmentController>().MakeUnUsable();
         }
         Debug.DrawRay(camera.transform.position, fwd,Color.green,5f);
     }

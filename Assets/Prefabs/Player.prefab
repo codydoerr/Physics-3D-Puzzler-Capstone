@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1479159825}
   - component: {fileID: 1479159823}
   - component: {fileID: 1479159824}
+  - component: {fileID: 1603971369}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -132,7 +133,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &1479159825
 CharacterController:
@@ -146,7 +147,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.5
-  m_Radius: 0.46
+  m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -200,6 +201,23 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1603971369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042315923641893302}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec79625b71080542bdcb663c32949bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mus1: {fileID: 8300000, guid: e7595bbb8169b7a47b913595b8d7dda4, type: 3}
+  mus2: {fileID: 8300000, guid: 7a0a7241ae3eab14c8c7dc59109b3119, type: 3}
+  mus3: {fileID: 0}
+  musicElement: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2042315924183222374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3286,7 @@ Transform:
   - {fileID: 2042315924523115637}
   - {fileID: 1129154816}
   - {fileID: 7865727251966809352}
+  - {fileID: 3085933333887185762}
   m_Father: {fileID: 2042315923641893297}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3285,7 +3304,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 1
   playerBody: {fileID: 2042315923641893297}
-  camera: {fileID: 0}
+  camera: {fileID: 2042315924523115637}
+  bodyCenter: {fileID: 3085933333887185762}
+--- !u!1 &7373615298172255054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3085933333887185762}
+  m_Layer: 0
+  m_Name: bodyCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3085933333887185762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7373615298172255054}
+  m_LocalRotation: {x: 0.14370064, y: -0, z: -0, w: 0.9896212}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2564542129819729127}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7865727251966809353
 GameObject:
   m_ObjectHideFlags: 0
