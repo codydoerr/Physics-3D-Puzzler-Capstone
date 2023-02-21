@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 
 public class EnvironmentController : MonoBehaviour
 {
+    public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads};
+    [SerializeField] EnvironmentType eT;
+    Animator anim;
     KeyCode use = KeyCode.E;
     HingeJoint[] movingAsset = new HingeJoint[2];
     [SerializeField] GameObject staticAsset;
@@ -14,6 +18,7 @@ public class EnvironmentController : MonoBehaviour
     {
         isUsable = false;
         movingAsset = staticAsset.GetComponents<HingeJoint>();
+        anim = GetComponent<Animator>();
     }
     public void MakeUsable()
     {
@@ -21,21 +26,42 @@ public class EnvironmentController : MonoBehaviour
     }
     public void MakeUnUsable()
     {
-
         isUsable = false;
     }
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(use) && isUsable)
+        if (eT == EnvironmentType.Door)
         {
-            var motor = movingAsset[0].motor;
-            motor.targetVelocity *= -1;
-            foreach (HingeJoint aMotor in movingAsset)
+            if (Input.GetKeyDown(use) && isUsable)
             {
-                aMotor.motor = motor;
+                var motor = movingAsset[0].motor;
+                motor.targetVelocity *= -1;
+                foreach (HingeJoint aMotor in movingAsset)
+                {
+                    aMotor.motor = motor;
+                }
             }
         }
+        if(eT == EnvironmentType.Button)
+        {
+            if (Input.GetKeyDown(use) && isUsable)
+            {
+                anim.SetTrigger("Press");
+            }
+        }
+        if (eT == EnvironmentType.Keypads)
+        {
+
+        }
+        if (eT == EnvironmentType.Pickups)
+        {
+
+        }
+        if (eT == EnvironmentType.Windows)
+        {
+
+        }
+
     }
 }

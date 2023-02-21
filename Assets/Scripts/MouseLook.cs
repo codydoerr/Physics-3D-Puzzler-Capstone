@@ -7,6 +7,8 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 1f;
     [SerializeField] Transform playerBody;
     [SerializeField] Transform camera;
+    [SerializeField] Transform bodyCenter;
+    [SerializeField] float activateDistance;
     float xRotation = 0f;
     GameObject lastEnvironmentEnabled;
 
@@ -32,16 +34,23 @@ public class MouseLook : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 fwd = transform.TransformDirection(camera.transform.forward);
         RaycastHit hit;
-        if (Physics.Raycast(camera.transform.position, fwd, out hit, 5f) && hit.collider.gameObject.GetComponent<EnvironmentController>()!=null)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (!Physics.Raycast(ray, out hit, activateDistance))
+        {
+            if (lastEnvironmentEnabled)
+            {
+                lastEnvironmentEnabled.GetComponent<EnvironmentController>().MakeUnUsable();
+                lastEnvironmentEnabled = null;
+            }
+            return;
+        }
+        else if (Physics.Raycast(ray, out hit, activateDistance) && (hit.collider.gameObject.GetComponent<EnvironmentController>()!=null|| hit.collider.gameObject.GetComponentInParent<EnvironmentController>() != null))
         {
             lastEnvironmentEnabled = hit.collider.gameObject;
+
             hit.collider.gameObject.GetComponent<EnvironmentController>().MakeUsable();
-        }
-        else if(hit.collider.gameObject.GetComponent<EnvironmentController>() != null)
-        {
-            hit.collider.gameObject.GetComponent<EnvironmentController>().MakeUnUsable();
         }
     }
 }
