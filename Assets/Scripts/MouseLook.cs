@@ -41,16 +41,38 @@ public class MouseLook : MonoBehaviour
         {
             if (lastEnvironmentEnabled)
             {
-                lastEnvironmentEnabled.GetComponent<EnvironmentController>().MakeUnUsable();
+                if (lastEnvironmentEnabled.GetComponentInParent<EnvironmentController>())
+                {
+                    lastEnvironmentEnabled.GetComponentInParent<EnvironmentController>().MakeUnUsable();
+                }
+                else if (lastEnvironmentEnabled.GetComponentInChildren<EnvironmentController>())
+                {
+                    lastEnvironmentEnabled.GetComponentInChildren<EnvironmentController>().MakeUnUsable();
+                }
+                else if (lastEnvironmentEnabled.GetComponent<EnvironmentController>())
+                {
+                    lastEnvironmentEnabled.GetComponent<EnvironmentController>().MakeUnUsable();
+                }
                 lastEnvironmentEnabled = null;
             }
             return;
         }
-        else if (Physics.Raycast(ray, out hit, activateDistance) && (hit.collider.gameObject.GetComponent<EnvironmentController>()!=null|| hit.collider.gameObject.GetComponentInParent<EnvironmentController>() != null))
+        else if (Physics.Raycast(ray, out hit, activateDistance) && (hit.collider.gameObject.GetComponent<EnvironmentController>()!=null || hit.collider.gameObject.GetComponentInParent<EnvironmentController>() != null || hit.collider.gameObject.GetComponentInChildren<EnvironmentController>() != null))
         {
+            Debug.Log(lastEnvironmentEnabled);
             lastEnvironmentEnabled = hit.collider.gameObject;
-
-            hit.collider.gameObject.GetComponent<EnvironmentController>().MakeUsable();
+            if (lastEnvironmentEnabled.GetComponentInParent<EnvironmentController>())
+            {
+                lastEnvironmentEnabled.GetComponentInParent<EnvironmentController>().MakeUsable();
+            }
+            else if (lastEnvironmentEnabled.GetComponentInChildren<EnvironmentController>())
+            {
+                lastEnvironmentEnabled.GetComponentInChildren<EnvironmentController>().MakeUsable();
+            }
+            else if (lastEnvironmentEnabled.GetComponent<EnvironmentController>())
+            {
+                lastEnvironmentEnabled.GetComponent<EnvironmentController>().MakeUsable();
+            }
         }
     }
 }

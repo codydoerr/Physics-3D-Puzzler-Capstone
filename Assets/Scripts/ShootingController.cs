@@ -41,7 +41,10 @@ public class ShootingController : MonoBehaviour
         {
             tabletPrefab.SetActive(false);
         }
-
+        if (IsTabletActive() && placedCamera)
+        {
+            placedCamera.transform.Rotate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"))*Time.deltaTime);
+        }
         if (Input.GetMouseButtonDown(0) && !gM.GetComponent<GameManager>().isGamePaused())
         {
             //change this to only destroy camera or gravity
@@ -105,7 +108,10 @@ public class ShootingController : MonoBehaviour
             Debug.Log("Armed heavy_stone");
         }
     }
-
+    public bool IsTabletActive()
+    {
+        return tabletPrefab.activeInHierarchy;
+    }
     private void SwitchAmmo(int type)
     {
         currentAmmo = inventoryAmmo[type];

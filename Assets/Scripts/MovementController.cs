@@ -54,7 +54,10 @@ public class MovementController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * (gravity*gravScale));
         }
         velocity.y += (gravity * gravScale) * Time.deltaTime;
-        playerCharacterController.Move(velocity * Time.deltaTime);
+        if (!GetComponent<ShootingController>().IsTabletActive())
+        {
+            playerCharacterController.Move(velocity * Time.deltaTime);
+        }
 
     }
 
