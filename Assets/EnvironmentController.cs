@@ -6,7 +6,7 @@ using UnityEngine.Animations;
 
 public class EnvironmentController : MonoBehaviour
 {
-    public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads};
+    public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads,Elevator};
     [SerializeField] EnvironmentType eT;
     Animator anim;
     KeyCode use = KeyCode.E;
