@@ -37,5 +37,13 @@ public class MusicController : MonoBehaviour
             timesHit++;
             Debug.Log("trigger hit!");
         }
+
+        if (collision.tag == "Player") 
+        {
+            audioSource.clip = mus2;
+            audioSource.Play();
+
+            Debug.Log("player trigger");
+        }
     }
 }
