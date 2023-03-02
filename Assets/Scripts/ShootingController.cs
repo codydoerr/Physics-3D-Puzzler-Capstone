@@ -86,6 +86,7 @@ public class ShootingController : MonoBehaviour
             if(currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera)
             {
                 tabletPrefab.SetActive(true);
+                tabletPrefab.GetComponent<TabletController>().SetCamera(placedCamera);
                 ammoLoaded = false;
                 placedCamera.GetComponent<AmmoType>().FireAmmo(power);
             }else

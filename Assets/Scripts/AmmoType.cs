@@ -46,10 +46,7 @@ public class AmmoType : MonoBehaviour
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             effectSpawn.SetActive(true);
-            effectSpawn.transform.rotation = Quaternion.EulerAngles((effectSpawn.transform.position - collision.GetContact(0).point).normalized);
             effectSpawn.GetComponent<Camera>().targetTexture = cameraRender;
-
-
         }
     }
 }
