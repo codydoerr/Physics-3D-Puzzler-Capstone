@@ -34,31 +34,44 @@ public class MovementController : MonoBehaviour
         {
             velocity.y = -2f;
         }
+        if (!GetComponent<ShootingController>().IsTabletActive())
+        {
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            if (Mathf.Abs(x + z) > 0 && isGrounded)
+            {
+                GetComponent<PlayerAnimationController>().StartWalking();
+            }
+            else
+            {
+                GetComponent<PlayerAnimationController>().EndWalking();
+            }
+            if (Input.GetMouseButtonDown(0)) {
+                this.forwardWalkSpeed /= 4;
+                this.sideWalkSpeed /= 3;
+            }
+            else
+            {
+                forwardWalkSpeed = tempSpeedHoldForward;
+                sideWalkSpeed = tempSpeedHoldSide;
+            }
+            Vector3 move = transform.right * x *sideWalkSpeed + transform.forward * z * forwardWalkSpeed;
+            playerCharacterController.Move(move * Time.deltaTime);
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                GetComponent<PlayerAnimationController>().TriggerJump();
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * (gravity*gravScale));
+            }
+            velocity.y += (gravity * gravScale) * Time.deltaTime;
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        if (Input.GetMouseButtonDown(0)) {
-            this.forwardWalkSpeed /= 4;
-            this.sideWalkSpeed /= 3;
+
+            playerCharacterController.Move(velocity * Time.deltaTime);
         }
         else
         {
-            forwardWalkSpeed = tempSpeedHoldForward;
-            sideWalkSpeed = tempSpeedHoldSide;
+            GetComponent<PlayerAnimationController>().EndWalking();
         }
-        Vector3 move = transform.right * x *sideWalkSpeed + transform.forward * z * forwardWalkSpeed;
-        playerCharacterController.Move(move * Time.deltaTime);
-
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * (gravity*gravScale));
-        }
-        velocity.y += (gravity * gravScale) * Time.deltaTime;
-        if (!GetComponent<ShootingController>().IsTabletActive())
-        {
-            playerCharacterController.Move(velocity * Time.deltaTime);
-        }
-
+ 
     }
 
 }

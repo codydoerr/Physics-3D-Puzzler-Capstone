@@ -216,6 +216,7 @@ MonoBehaviour:
   mus1: {fileID: 8300000, guid: e7595bbb8169b7a47b913595b8d7dda4, type: 3}
   mus2: {fileID: 8300000, guid: 7a0a7241ae3eab14c8c7dc59109b3119, type: 3}
   mus3: {fileID: 0}
+  mus4: {fileID: 0}
   musicElement: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!1 &2042315924523115640
@@ -275,7 +276,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.75
   far clip plane: 1000
   field of view: 60
   orthographic: 0
