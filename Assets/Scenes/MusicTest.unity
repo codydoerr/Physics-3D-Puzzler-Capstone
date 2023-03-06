@@ -2419,7 +2419,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1234577471}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1848400267}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de6057f7e2ba4114693b5417eb91cd94, type: 3}
@@ -13967,6 +13967,7 @@ GameObject:
   - component: {fileID: 875576868}
   - component: {fileID: 875576867}
   - component: {fileID: 875576866}
+  - component: {fileID: 875576871}
   m_Layer: 0
   m_Name: Music Stem
   m_TagString: Untagged
@@ -14034,7 +14035,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6b788203a38a37a48b9a2f32f5a04845, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14148,6 +14149,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &875576871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875576865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec79625b71080542bdcb663c32949bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mus1: {fileID: 8300000, guid: e7595bbb8169b7a47b913595b8d7dda4, type: 3}
+  mus2: {fileID: 8300000, guid: 7a0a7241ae3eab14c8c7dc59109b3119, type: 3}
+  mus3: {fileID: 0}
+  mus4: {fileID: 0}
+  musicElement: {fileID: 875576865}
+  audioSource: {fileID: 875576868}
+  stemVol: 0
 --- !u!1001 &875938139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27457,6 +27477,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9dee99a86268a4e9c81c7a75a2c82d, type: 3}
+--- !u!1 &1848400267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3514612803503183340, guid: cc713646941989341b406cc4f1dc77ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1234577471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1849515892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32014,6 +32040,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1479159823, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
+      propertyPath: gM
+      value: 
+      objectReference: {fileID: 1848400267}
     - target: {fileID: 2042315923641893297, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
       propertyPath: m_RootOrder

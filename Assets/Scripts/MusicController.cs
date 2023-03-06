@@ -11,45 +11,38 @@ public class MusicController : MonoBehaviour
 
     public GameObject musicElement;
     public AudioSource audioSource;
-    private float stemVol;
+    public float stemVol;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         stemVol = 0.0f;
+        audioSource.volume = stemVol;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (stemVol < 0.0f)
-       {
-            stemVol = 0.0f;
-       }
-       else if (stemVol > 1.0f)
-       {
-            stemVol = 1.0f;
-       }
+      
     }
 
-    private void OnTriggerEnter(Collider collision)
+    public void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "pellet") 
         {
             audioSource.clip = mus1;
-            audioSource.Play();
-            audioSource.volume = stemVol;
-            //stemVol + 0.1f;
+            stemVol = Mathf.Lerp(0, 1, 0.25f * Time.deltaTime);
+            Debug.Log(stemVol);
             Debug.Log("trigger hit!");
         }
 
         if (collision.tag == "Player") 
         {
             audioSource.clip = mus2;
-            audioSource.Play();
-            audioSource.volume = stemVol;
-            //stemVol + 0.1f;
-
+            stemVol = Mathf.Lerp(0, 1, 0.5f * Time.deltaTime);
+            Debug.Log(stemVol);
             Debug.Log("player trigger");
         }
     }
