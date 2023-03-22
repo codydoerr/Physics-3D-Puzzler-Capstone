@@ -31,7 +31,7 @@ public class EnvironmentController : MonoBehaviour
     public void MakeUnUsable()
     {
         isUsable = false;
-        if (connectedObject)
+        if (connectedObject!=null)
         {
             if (connectedObject.GetComponent<EnvironmentController>())
             {
