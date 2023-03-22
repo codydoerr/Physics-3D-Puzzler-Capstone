@@ -5,6 +5,7 @@ using UnityEngine;
 public class TabletController : MonoBehaviour
 {
     [SerializeField] GameObject camera;
+    [SerializeField] float rotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,9 @@ public class TabletController : MonoBehaviour
     {
         float upDownValue = Input.GetAxis("Vertical");
         float leftRightValue = Input.GetAxis("Horizontal");
-
-        camera.transform.Rotate(new Vector3(upDownValue, -leftRightValue ,0  ), Space.Self);
+        float spinValue = Input.mouseScrollDelta.y;
+        Vector3 rotation = new Vector3(upDownValue, -leftRightValue, spinValue*3)*rotationSpeed;
+        camera.transform.Rotate(rotation, Space.Self);
     }
     public void SetCamera(GameObject newCamera)
     {

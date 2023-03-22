@@ -28,7 +28,7 @@ public class ShootingController : MonoBehaviour
     {
         gM = GameObject.Find("GameManager");
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -106,7 +106,7 @@ public class ShootingController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SwitchAmmo(1);
-            Debug.Log("Armed heavy_stone");
+            Debug.Log("Armed camera");
         }
     }
     public bool IsTabletActive()
