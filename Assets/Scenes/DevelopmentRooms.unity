@@ -30696,21 +30696,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2042315924523115638, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504284441054456467, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7865727251966809353, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
 --- !u!1001 &2049920568
