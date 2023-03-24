@@ -8,6 +8,7 @@ TagManager:
   - elevator
   - overgrown
   - pellet
+  - Ground
   layers:
   - Default
   - TransparentFX
