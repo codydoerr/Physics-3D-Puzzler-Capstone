@@ -9,6 +9,7 @@ TagManager:
   - overgrown
   - pellet
   - Ground
+  - Key
   layers:
   - Default
   - TransparentFX

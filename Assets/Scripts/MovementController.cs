@@ -18,7 +18,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
 
-    public GameObject KeyToDoor;
+    
 
     bool isGrounded;
     // Start is called before the first frame update
@@ -73,12 +73,6 @@ public class MovementController : MonoBehaviour
         else
         {
             GetComponent<PlayerAnimationController>().EndWalking();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            print("E was pressed");
-            KeyToDoor.SetActive(false);
         }
     }
 
