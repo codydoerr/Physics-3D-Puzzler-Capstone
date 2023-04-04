@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    
     [SerializeField] float sideWalkSpeed = 1;
     [SerializeField] float forwardWalkSpeed = 1;
     [SerializeField] float jumpHeight = 3f;
@@ -16,6 +17,8 @@ public class MovementController : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
+
+    public GameObject KeyToDoor;
 
     bool isGrounded;
     // Start is called before the first frame update
@@ -71,7 +74,12 @@ public class MovementController : MonoBehaviour
         {
             GetComponent<PlayerAnimationController>().EndWalking();
         }
- 
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            print("E was pressed");
+            KeyToDoor.SetActive(false);
+        }
     }
 
 }
