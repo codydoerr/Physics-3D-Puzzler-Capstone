@@ -10,8 +10,9 @@ using TMPro;
 public class InteractController : MonoBehaviour
 {
     public GameObject KeyToDoor;
-    public bool hasKey;
-    public bool insideBox;
+    public GameObject unlockableDoor;
+    private bool hasKey;
+    private bool insideBox;
     public TextMeshProUGUI interactText;
 
     // Start is called before the first frame update
@@ -36,12 +37,23 @@ public class InteractController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        insideBox = true;
-        interactText.enabled = true;
+        print(other);
+        if (other.gameObject == KeyToDoor)
+        {
+            insideBox = true;
+            interactText.enabled = true;
+        }
+        else { 
+            
+        }
     }
     void OnTriggerExit(Collider other)
     {
-        insideBox = false;
-        interactText.enabled = false;
+        if (other.gameObject == KeyToDoor)
+        {
+            insideBox = false;
+            interactText.enabled = false;
+        }
+        
     }
 }
