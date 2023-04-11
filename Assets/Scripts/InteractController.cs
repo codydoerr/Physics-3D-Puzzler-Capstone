@@ -11,8 +11,10 @@ public class InteractController : MonoBehaviour
 {
     public GameObject KeyToDoor;
     public GameObject unlockableDoor;
+    public Animator animator;
     private bool hasKey;
     private bool insideBox;
+    private bool insideDoorBox;
     public TextMeshProUGUI interactText;
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class InteractController : MonoBehaviour
         hasKey = false;
         insideBox = false;
         interactText.enabled = false;
+        animator.Play("Idle");
     }
 
     // Update is called once per frame
@@ -33,6 +36,13 @@ public class InteractController : MonoBehaviour
             hasKey = true;
             interactText.enabled = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && hasKey && insideDoorBox)
+        {
+            print("Player opens door");
+            animator.Play("Door Open Animation");
+            interactText.enabled = false;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -43,8 +53,11 @@ public class InteractController : MonoBehaviour
             insideBox = true;
             interactText.enabled = true;
         }
-        else { 
-            
+        if (other.gameObject == unlockableDoor && hasKey == true)
+        { 
+            print("in door bounding box");
+            insideDoorBox = true;
+            interactText.enabled = true;
         }
     }
     void OnTriggerExit(Collider other)
@@ -54,6 +67,12 @@ public class InteractController : MonoBehaviour
             insideBox = false;
             interactText.enabled = false;
         }
-        
+        if (other.gameObject == unlockableDoor && hasKey == true)
+        {
+            print("left door bounding box");
+            insideDoorBox = false;
+            interactText.enabled = false;
+        }
+
     }
 }
