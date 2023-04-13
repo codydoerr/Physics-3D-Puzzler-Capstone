@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
+using TMPro;
 
 
 public class EnvironmentController : MonoBehaviour
 {
     public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads,Elevator};
     [SerializeField] EnvironmentType eT;
+    public TextMeshProUGUI InteractText;
     Animator anim;
     KeyCode use = KeyCode.E;
     HingeJoint[] movingAsset = new HingeJoint[2];
@@ -48,11 +51,13 @@ public class EnvironmentController : MonoBehaviour
             }
         }
     }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(use) && isUsable)
         {
+            print("object used");
             UseObject();
         }
     }
@@ -62,6 +67,7 @@ public class EnvironmentController : MonoBehaviour
         {
             if (connectedObject.GetComponent<EnvironmentController>())
             {
+                print("this should run");
                 connectedObject.GetComponent<EnvironmentController>().MakeUsable();
                 connectedObject.GetComponent<EnvironmentController>().UseObject();
             }
@@ -86,6 +92,11 @@ public class EnvironmentController : MonoBehaviour
                     aMotor.motor = motor;
                 }
            
+        }
+        if (eT == EnvironmentType.Elevator)
+        {
+            print("elevator opens");
+
         }
         if (eT == EnvironmentType.Keypads)
         {
