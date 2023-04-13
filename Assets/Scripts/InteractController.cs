@@ -42,6 +42,7 @@ public class InteractController : MonoBehaviour
             print("Player opens door");
             animator.Play("Door Open Animation");
             interactText.enabled = false;
+            unlockableDoor.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 

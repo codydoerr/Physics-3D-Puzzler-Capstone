@@ -27,6 +27,7 @@ public class EnvironmentController : MonoBehaviour
     public void MakeUsable()
     {
         isUsable = true;
+        print("made usable");
     }
     public void MakeUnUsable()
     {
