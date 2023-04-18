@@ -8,7 +8,7 @@ using TMPro;
 
 public class EnvironmentController : MonoBehaviour
 {
-    public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads,Elevator};
+    public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads,Elevator,Unfrozen};
     [SerializeField] EnvironmentType eT;
     public TextMeshProUGUI InteractText;
     Animator anim;
@@ -61,6 +61,18 @@ public class EnvironmentController : MonoBehaviour
             UseObject();
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("bang bang");
+        if (collision.gameObject.GetComponent<ShootingController>() != null || (collision.gameObject.GetComponent<AmmoType>() != null && eT == EnvironmentType.Unfrozen))
+        {
+            GetComponentInParent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Free;
+
+            GetComponentInParent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Free;
+
+            GetComponentInParent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Free;
+        }
+    }
     public void UseObject()
     {
         if (eT == EnvironmentType.Button)
@@ -110,5 +122,6 @@ public class EnvironmentController : MonoBehaviour
         {
 
         }
+
     }
 }
