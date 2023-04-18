@@ -23,7 +23,6 @@ public class InteractController : MonoBehaviour
         hasKey = false;
         insideBox = false;
         interactText.enabled = false;
-        animator.Play("Idle");
     }
 
     // Update is called once per frame

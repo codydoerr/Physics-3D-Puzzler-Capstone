@@ -8,15 +8,18 @@ using TMPro;
 
 public class EnvironmentController : MonoBehaviour
 {
-    public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads,Elevator,Unfrozen};
+    public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads,Elevator};
     [SerializeField] EnvironmentType eT;
     public TextMeshProUGUI InteractText;
     Animator anim;
+    public Animator animator;
+    public AnimationClip clip;
     KeyCode use = KeyCode.E;
     HingeJoint[] movingAsset = new HingeJoint[2];
     [SerializeField] GameObject staticAsset;
     [SerializeField] GameObject connectedObject;
     bool isUsable;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,7 @@ public class EnvironmentController : MonoBehaviour
     public void MakeUsable()
     {
         isUsable = true;
-        print("made usable");
+        //print("made usable");
     }
     public void MakeUnUsable()
     {
@@ -57,20 +60,8 @@ public class EnvironmentController : MonoBehaviour
     {
         if (Input.GetKeyDown(use) && isUsable)
         {
-            print("object used");
+            //print("object used");
             UseObject();
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("bang bang");
-        if (collision.gameObject.GetComponent<ShootingController>() != null || (collision.gameObject.GetComponent<AmmoType>() != null && eT == EnvironmentType.Unfrozen))
-        {
-            GetComponentInParent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Free;
-
-            GetComponentInParent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Free;
-
-            GetComponentInParent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Free;
         }
     }
     public void UseObject()
@@ -79,7 +70,6 @@ public class EnvironmentController : MonoBehaviour
         {
             if (connectedObject.GetComponent<EnvironmentController>())
             {
-                print("this should run");
                 connectedObject.GetComponent<EnvironmentController>().MakeUsable();
                 connectedObject.GetComponent<EnvironmentController>().UseObject();
             }
@@ -94,6 +84,11 @@ public class EnvironmentController : MonoBehaviour
                 connectedObject.GetComponentInChildren<EnvironmentController>().UseObject();
             }
             anim.SetTrigger("Press");
+            if (connectedObject.name == "Elevator")
+            {
+                animator.Play(clip.name);
+            }
+            
         }
         if (eT == EnvironmentType.Door)
         {
@@ -107,7 +102,8 @@ public class EnvironmentController : MonoBehaviour
         }
         if (eT == EnvironmentType.Elevator)
         {
-            print("elevator opens");
+            //print("elevator opens");
+            //animator.Play("Open Elevator");
 
         }
         if (eT == EnvironmentType.Keypads)
@@ -122,6 +118,5 @@ public class EnvironmentController : MonoBehaviour
         {
 
         }
-
     }
 }
