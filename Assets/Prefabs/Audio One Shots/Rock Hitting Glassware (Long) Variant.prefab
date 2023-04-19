@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2237708185432719232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.610134
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893323351711865960, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115233598491528182, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_Name
+      value: Rock Hitting Glassware (Long)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675791166930111201, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 469d2ec3b7434be4d83a80946c70db39, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ce3049e61ba9a647905f3878902de16, type: 3}

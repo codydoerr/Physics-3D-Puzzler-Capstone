@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class OneShotController : MonoBehaviour
+public class TreeOneShotScript : MonoBehaviour
 {
     [SerializeField] float destroyTime;
     [SerializeField] AudioMixerGroup mixerGroup;
