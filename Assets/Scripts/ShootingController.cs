@@ -28,28 +28,31 @@ public class ShootingController : MonoBehaviour
     {
         gM = GameObject.Find("GameManager");
     }
-    
+
     // Update is called once per frame
     void Update()
     {
         bool isCamera = currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera;
-        if (Input.GetKeyDown(KeyCode.Q) && !tabletPrefab.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Q) && !IsTabletActive())
         {
             tabletPrefab.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && tabletPrefab.activeInHierarchy)
+        else if (Input.GetKeyDown(KeyCode.Q) && IsTabletActive())
         {
             tabletPrefab.SetActive(false);
         }
         if (IsTabletActive() && placedCamera)
         {
-            placedCamera.transform.Rotate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"))*Time.deltaTime);
+            placedCamera.transform.Rotate(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * Time.deltaTime);
         }
         if (Input.GetMouseButtonDown(0) && !gM.GetComponent<GameManager>().isGamePaused())
         {
             //change this to only destroy camera or gravity
             //other will destroy after 3 seconds
-
+            if (IsTabletActive())
+            {
+                tabletPrefab.SetActive(false);
+            }
             if (!ammoLoaded && isCamera)
             {
                 Destroy(placedCamera);
@@ -64,7 +67,7 @@ public class ShootingController : MonoBehaviour
         }
         else if (Input.GetMouseButton(0) && ammoLoaded)
         {
-                camera.transform.localPosition = new Vector3(0, 0, aimZoomDelta);
+            camera.transform.localPosition = new Vector3(0, 0, aimZoomDelta);
             if (placedCamera)
             {
                 placedCamera.transform.position = loadPoint.transform.position;
@@ -83,13 +86,13 @@ public class ShootingController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if(currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera)
+            if (currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera)
             {
-                tabletPrefab.SetActive(true);
-                tabletPrefab.GetComponent<TabletController>().SetCamera(placedCamera);
+           
                 ammoLoaded = false;
                 placedCamera.GetComponent<AmmoType>().FireAmmo(power);
-            }else
+                StartCoroutine(WaitForPlacedCamera());
+            } else
             {
                 ammoLoaded = false;
                 loadedAmmo.GetComponent<AmmoType>().FireAmmo(power);
@@ -109,9 +112,19 @@ public class ShootingController : MonoBehaviour
             Debug.Log("Armed camera");
         }
     }
+    private IEnumerator WaitForPlacedCamera(){
+        yield return new WaitUntil(() => placedCamera.GetComponent<Rigidbody>().velocity == Vector3.zero);
+        tabletPrefab.SetActive(true);
+        tabletPrefab.GetComponent<TabletController>().SetCamera(placedCamera);
+    }
+
     public bool IsTabletActive()
     {
         return tabletPrefab.activeInHierarchy;
+    }
+    public bool IsPlayerCocked()
+    {
+        return ammoLoaded;
     }
     private void SwitchAmmo(int type)
     {
