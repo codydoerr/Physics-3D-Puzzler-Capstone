@@ -33,7 +33,6 @@ public class EnvironmentController : MonoBehaviour
     public void MakeUsable()
     {
         isUsable = true;
-        //print("made usable");
     }
     public void MakeUnUsable()
     {
@@ -60,7 +59,6 @@ public class EnvironmentController : MonoBehaviour
     {
         if (Input.GetKeyDown(use) && isUsable)
         {
-            //print("object used");
             UseObject();
         }
     }
@@ -102,8 +100,6 @@ public class EnvironmentController : MonoBehaviour
         }
         if (eT == EnvironmentType.Elevator)
         {
-            //print("elevator opens");
-            //animator.Play("Open Elevator");
 
         }
         if (eT == EnvironmentType.Keypads)
