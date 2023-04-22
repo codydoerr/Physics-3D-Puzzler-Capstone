@@ -17,6 +17,10 @@ public class MovementController : MonoBehaviour
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
 
+    float stepCount;
+    float deltaStep;
+    float axisMovement;
+
     bool isGrounded;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +28,7 @@ public class MovementController : MonoBehaviour
         playerCharacterController = GetComponent<CharacterController>();
         tempSpeedHoldForward = forwardWalkSpeed;
         tempSpeedHoldSide = sideWalkSpeed;
+        axisMovement = Input.GetAxis("Vertical");
     }
 
     // Update is called once per frame
@@ -66,11 +71,25 @@ public class MovementController : MonoBehaviour
 
 
             playerCharacterController.Move(velocity * Time.deltaTime);
-        }
+            
+
+            if (x > 0 || x < 0 || z > 0 || z < 0 && stepCount == 1)
+            {
+                Debug.Log("footstep");
+                stepCount = Mathf.Lerp(stepCount, 1, deltaStep * Time.deltaTime);
+                Debug.Log(stepCount);
+
+            }
+
+            //Debug.Log(x + "," + z);
+                
+            }
         else
         {
             GetComponent<PlayerAnimationController>().EndWalking();
         }
+
+
  
     }
 
