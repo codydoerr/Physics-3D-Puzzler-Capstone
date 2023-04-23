@@ -10,6 +10,7 @@ TagManager:
   - pellet
   - Ground
   - Key
+  - Box
   layers:
   - Default
   - TransparentFX

@@ -30,6 +30,8 @@ public class EnvironmentController : MonoBehaviour
         }
         anim = GetComponent<Animator>();
     }
+
+ 
     public void MakeUsable()
     {
         isUsable = true;
@@ -62,6 +64,16 @@ public class EnvironmentController : MonoBehaviour
             UseObject();
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Box")
+        {
+            anim.Play("BigRedButtonHalfPress");
+            animator.Play(clip.name);
+        }
+    }
+
     public void UseObject()
     {
         if (eT == EnvironmentType.Button)
