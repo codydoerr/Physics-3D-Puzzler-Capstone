@@ -113,7 +113,7 @@ public class EnvironmentController : MonoBehaviour
         }
         if (eT == EnvironmentType.Pickups)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().AddNote(this.gameObject);
+            //GameObject.Find("GameManager").GetComponent<GameManager>().AddNote(this.gameObject);
             Destroy(gameObject);
         }
         if (eT == EnvironmentType.Windows)
