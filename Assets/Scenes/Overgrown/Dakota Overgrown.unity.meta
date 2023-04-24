@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/MusicTest.unity.meta
-guid: 2ed5711ab879ab14ea403095b48c9a79
+<<<<<<<< HEAD:Assets/Scenes/Overgrown.unity.meta
+guid: a77c88173c99de544bcb055e9d7c027c
 ========
-guid: b951f09893f443b4ab053421a554f6a0
->>>>>>>> bd8489e76728dbf1624c4341be55625e0a18786c:Assets/Scenes/Level 1 Overgrown Future.unity.meta
+guid: 394841339fda0b641bd8588c3fd35741
+folderAsset: yes
+>>>>>>>> origin/ben:Assets/Sounds/Capstone Game Sounds.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
