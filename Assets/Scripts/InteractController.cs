@@ -59,6 +59,11 @@ public class InteractController : MonoBehaviour
             insideDoorBox = true;
             interactText.enabled = true;
         }
+        if (other.gameObject.GetComponent<EnvironmentController>() &&
+            other.gameObject.GetComponent<EnvironmentController>().GetEnvironmentType() == EnvironmentController.EnvironmentType.Pickups
+            ){
+            interactText.enabled = true;
+        }
     }
     void OnTriggerExit(Collider other)
     {
@@ -71,6 +76,11 @@ public class InteractController : MonoBehaviour
         {
             print("left door bounding box");
             insideDoorBox = false;
+            interactText.enabled = false;
+        }
+        if (other.gameObject.GetComponent<EnvironmentController>() &&
+        other.gameObject.GetComponent<EnvironmentController>().GetEnvironmentType() == EnvironmentController.EnvironmentType.Pickups
+        ){
             interactText.enabled = false;
         }
 
