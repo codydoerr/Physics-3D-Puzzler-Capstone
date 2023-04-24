@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
+public class Note
+{
+    string content;
+    string name;
 
+    public Note(string name,string content) {
+        this.name = name;
+        this.content = content;
+    }
+}
 public class EnvironmentController : MonoBehaviour
 {
     public enum EnvironmentType {Door,Button,Windows,Pickups,Keypads,Elevator,Unfrozen};
@@ -104,7 +113,8 @@ public class EnvironmentController : MonoBehaviour
         }
         if (eT == EnvironmentType.Pickups)
         {
-
+            GameObject.Find("GameManager").GetComponent<GameManager>().AddNote(this.gameObject);
+            Destroy(gameObject);
         }
         if (eT == EnvironmentType.Windows)
         {
