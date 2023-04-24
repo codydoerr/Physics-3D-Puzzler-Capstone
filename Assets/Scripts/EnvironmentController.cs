@@ -74,6 +74,15 @@ public class EnvironmentController : MonoBehaviour
         }
     }
 
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Box")
+        {
+            anim.Play("BigRedButtonHalfPressUp");
+            animator.Play("Close Elevator");
+        }
+    }
+
     public void UseObject()
     {
         if (eT == EnvironmentType.Button)
@@ -96,6 +105,7 @@ public class EnvironmentController : MonoBehaviour
             anim.SetTrigger("Press");
             if (connectedObject.name == "Elevator")
             {
+                animator.SetBool("Pressed", true);
                 animator.Play(clip.name);
             }
             
