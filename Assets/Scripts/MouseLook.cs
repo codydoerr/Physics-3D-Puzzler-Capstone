@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
     public void SetMouseSens(float newSens)
     {
@@ -31,6 +32,7 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 65f);
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        Cursor.visible = true;
     }
     private void FixedUpdate()
     {
