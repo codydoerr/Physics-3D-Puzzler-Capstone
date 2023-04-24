@@ -40,6 +40,10 @@ public class EnvironmentController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    public EnvironmentType GetEnvironmentType()
+    {
+        return eT;
+    }
  
     public void MakeUsable()
     {
