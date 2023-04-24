@@ -20,6 +20,8 @@ public class MovementController : MonoBehaviour
     float stepCount;
     private float deltaStep;
     float axisMovement;
+    private GameObject footstepSound;
+    public GameObject footstepPrefab;
 
     bool isGrounded;
     // Start is called before the first frame update
@@ -30,6 +32,21 @@ public class MovementController : MonoBehaviour
         tempSpeedHoldSide = sideWalkSpeed;
         deltaStep = 0.5f;
         //axisMovement = Input.GetAxis("Vertical");
+    }
+
+    public void Footstep() 
+    {
+         if (velocity.x > 0 || velocity.x < 0 || velocity.z > 0 || velocity.z < 0 && stepCount == 1)
+            {
+                Debug.Log("footstep");
+                stepCount = Mathf.Lerp(stepCount, 1, deltaStep * Time.deltaTime);
+                Debug.Log(stepCount);
+                stepCount = 0;
+            }
+
+            //Debug.Log(x + "," + z);
+                
+            
     }
 
     // Update is called once per frame
@@ -47,6 +64,19 @@ public class MovementController : MonoBehaviour
             if (Mathf.Abs(x + z) > 0 && isGrounded)
             {
                 GetComponent<PlayerAnimationController>().StartWalking();
+                if (footstepSound != null) {
+                
+                    footstepSound = Instantiate(footstepPrefab, transform.position, Quaternion.identity);
+                } else {
+
+                }
+
+                if (footstepSound != null && footstepSound.GetComponent<AudioSource>().isPlaying) {
+                
+                } else {
+                
+                    Destroy(footstepSound);
+                }
             }
             else
             {
@@ -72,19 +102,7 @@ public class MovementController : MonoBehaviour
 
 
             playerCharacterController.Move(velocity * Time.deltaTime);
-            
-
-            if (x > 0 || x < 0 || z > 0 || z < 0 && stepCount == 1)
-            {
-                Debug.Log("footstep");
-                stepCount = Mathf.Lerp(stepCount, 1, deltaStep * Time.deltaTime);
-                Debug.Log(stepCount);
-                stepCount = 0;
-            }
-
-            //Debug.Log(x + "," + z);
-                
-            }
+        }
         else
         {
             GetComponent<PlayerAnimationController>().EndWalking();
