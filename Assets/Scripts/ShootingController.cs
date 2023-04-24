@@ -11,7 +11,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] GameObject gM;
     [SerializeField] GameObject tabletPrefab;
 
-    [SerializeField] Camera camera;
+    [SerializeField] new Camera camera;
 
     [SerializeField] float startingZoom;
     [SerializeField] float aimZoomDelta;
@@ -88,7 +88,6 @@ public class ShootingController : MonoBehaviour
         {
             if (currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera)
             {
-           
                 ammoLoaded = false;
                 placedCamera.GetComponent<AmmoType>().FireAmmo(power);
                 StartCoroutine(WaitForPlacedCamera());
@@ -112,10 +111,15 @@ public class ShootingController : MonoBehaviour
             Debug.Log("Armed camera");
         }
     }
-    private IEnumerator WaitForPlacedCamera(){
-        yield return new WaitUntil(() => placedCamera.GetComponent<Rigidbody>().velocity == Vector3.zero);
+    private IEnumerator WaitForPlacedCamera()
+    {
         tabletPrefab.SetActive(true);
+        yield return new WaitUntil(() => placedCamera.GetComponent<Rigidbody>().velocity == Vector3.zero);
+
+
+        Debug.Log("setactive");
         tabletPrefab.GetComponent<TabletController>().SetCamera(placedCamera);
+        Debug.Log("camset");
     }
 
     public bool IsTabletActive()
