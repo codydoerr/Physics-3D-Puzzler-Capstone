@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     bool isPaused;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] List<Note> notesFound = new List<Note>();
     // Start is called before the first frame update
     void Start()
     {
@@ -44,5 +45,10 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+    }
+    public void AddNote(Note note) {
+
+        notesFound.Add(note);
+    
     }
 }
