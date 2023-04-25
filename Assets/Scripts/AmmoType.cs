@@ -16,7 +16,7 @@ public class AmmoType : MonoBehaviour
         this.power = power;
         Launch();
     }
-    public Ammo GetType()
+    public Ammo GetAmmoType()
     {
         return currentAmmo;
     }
