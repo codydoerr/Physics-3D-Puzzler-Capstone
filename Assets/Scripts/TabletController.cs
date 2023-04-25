@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TabletController : MonoBehaviour
 {
-    [SerializeField] GameObject camera;
+    [SerializeField] new GameObject camera;
     [SerializeField] float rotationSpeed;
     // Start is called before the first frame update
     void Start()
