@@ -19,8 +19,5 @@ public class OneShotController : MonoBehaviour
         {
             Destroy(this, clip.length);
         }
-
-
-
     }
 }

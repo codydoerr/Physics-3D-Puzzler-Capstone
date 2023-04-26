@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2021615792552799228}
   - component: {fileID: 2051046388890134084}
   - component: {fileID: 2040784406721199794}
-  - component: {fileID: 2081826652574831988}
   - component: {fileID: 2017969116467985376}
+  - component: {fileID: 1832268461428710131}
   m_Layer: 0
   m_Name: brokenTree
   m_TagString: Untagged
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2081826652574831988
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019234733131327712}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: c9b946f913e13784a91a99d13f4df091, type: 3}
 --- !u!54 &2017969116467985376
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,6 +102,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!136 &1832268461428710131
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019234733131327712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: -0.0000026524067, y: 0.76, z: -0.00000016391277}
 --- !u!1001 &2017969116537929146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,7 +183,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64500347141530236, guid: 06d0ffeb0a8ba0646a138b58b4625355, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 06d0ffeb0a8ba0646a138b58b4625355, type: 3}
 --- !u!1 &2018839509037020882 stripped
 GameObject:
@@ -303,6 +304,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &8303376923509880666
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018839509037020882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.27
+  m_Height: 5.237155
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.531095, z: 0}
 --- !u!4 &2022530608062299472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4570562699182314, guid: 06d0ffeb0a8ba0646a138b58b4625355,
