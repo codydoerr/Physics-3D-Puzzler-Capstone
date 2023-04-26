@@ -23,6 +23,9 @@ public class ShootingController : MonoBehaviour
     [SerializeField] float speedV = 2.0f;
     float yaw = 0.0f;
     float pitch = 0.0f;
+
+    public GameObject slingShotPrefab;
+    private GameObject ssSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +100,8 @@ public class ShootingController : MonoBehaviour
                 loadedAmmo.GetComponent<AmmoType>().FireAmmo(power);
             }
             loadedAmmo = null;
+            ssSound = Instantiate(slingShotPrefab, transform.position, Quaternion.identity);
+            ssSound.GetComponent<AudioSource>().pitch = (Random.Range(1.0f, 1.2f));
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
