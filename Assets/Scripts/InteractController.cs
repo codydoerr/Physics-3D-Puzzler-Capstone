@@ -11,10 +11,13 @@ public class InteractController : MonoBehaviour
 {
     public GameObject KeyToDoor;
     public GameObject unlockableDoor;
-    public Animator animator;
+    [SerializeField] GameObject Elevator;
+    public Animator doorAnimator;
+    [SerializeField] Animator elevatorAnimator;
     private bool hasKey;
     private bool insideBox;
     private bool insideDoorBox;
+    bool isElevator;
     public TextMeshProUGUI interactText;
 
     // Start is called before the first frame update
@@ -39,9 +42,16 @@ public class InteractController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && hasKey && insideDoorBox)
         {
             print("Player opens door");
-            animator.Play("Door Open Animation");
+            doorAnimator.Play("Door Open Animation");
             interactText.enabled = false;
             unlockableDoor.GetComponent<CapsuleCollider>().enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && isElevator)
+        {
+            elevatorAnimator.Play("Close Elevator 0");
+            interactText.enabled = false;
+            Elevator.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 
@@ -50,8 +60,13 @@ public class InteractController : MonoBehaviour
         print(other);
         if (other.gameObject == KeyToDoor)
         {
-            insideBox = true;
             interactText.enabled = true;
+            insideBox = true;
+        }
+        if (other.gameObject == Elevator)
+        {
+            interactText.enabled = true;
+            isElevator = true;
         }
         if (other.gameObject == unlockableDoor && hasKey == true)
         { 
@@ -69,8 +84,13 @@ public class InteractController : MonoBehaviour
     {
         if (other.gameObject == KeyToDoor)
         {
-            insideBox = false;
             interactText.enabled = false;
+            insideBox = false;
+        }
+        if (other.gameObject == Elevator)
+        {
+            interactText.enabled = false;
+            isElevator = false;
         }
         if (other.gameObject == unlockableDoor && hasKey == true)
         {
