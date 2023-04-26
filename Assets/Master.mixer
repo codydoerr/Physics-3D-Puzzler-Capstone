@@ -20,6 +20,48 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-4961987803804160865
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4baaacd002dedb14f8f3de5757958d4e
+  m_EffectName: SFX Reverb
+  m_MixLevel: 0e2959c4b922485468dd8a63359ffc28
+  m_Parameters:
+  - m_ParameterName: Dry Level
+    m_GUID: 0d4d20f690f6fc64f9659e94d8fa2646
+  - m_ParameterName: Room
+    m_GUID: 2c0b8e1b4e6d89e44b14b7aaa442f461
+  - m_ParameterName: Room HF
+    m_GUID: 01bea287528c0f0429a10937ab238f17
+  - m_ParameterName: Decay Time
+    m_GUID: 98aba8d0034817240bf996fcd2409c78
+  - m_ParameterName: Decay HF Ratio
+    m_GUID: 004f6a2a4de1f474eaa0760300cbbf24
+  - m_ParameterName: Reflections
+    m_GUID: f764ece1c6b7ffe4184bc9353c3721e3
+  - m_ParameterName: Reflect Delay
+    m_GUID: adf4456d87b1630489a36ea2e5e73ee1
+  - m_ParameterName: Reverb
+    m_GUID: ee9b2bea0c6b6de41a4e833e0d0c8457
+  - m_ParameterName: Reverb Delay
+    m_GUID: a45f9261c4a692941ad54cf794d4a0c4
+  - m_ParameterName: Diffusion
+    m_GUID: bf75b8be8ac26004ab0da6ff967d45cb
+  - m_ParameterName: Density
+    m_GUID: 7e49ba7d8cc80b74e85d9cad00d6d6db
+  - m_ParameterName: HF Reference
+    m_GUID: 264db66f2ba545149ba05757805d4980
+  - m_ParameterName: Room LF
+    m_GUID: 85b53afd671b0004099add08efa68eb4
+  - m_ParameterName: LF Reference
+    m_GUID: b2602f1cd469cb144af195506f9bbda8
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-1779430024948270925
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -35,6 +77,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 1022768208716867929}
+  - {fileID: -4961987803804160865}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -150,11 +193,13 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 36d88bbf47b03514b9b904debd62d4bf
   m_FloatValues:
+    4732b1828f3793e47810bacc9f570a91: -24
     5aee1655e553cad4798765a44bbffae4: 0.933
     637529a5c2e9f414ab03f691218843c5: 0.13552584
     9c266f7664aead248a2ed28830434741: 2.3
     642947a778640df4499802b87956bcc1: 0
     588e0a99ec884764b87d5a1ae17a49d9: -975
+    2c0b8e1b4e6d89e44b14b7aaa442f461: -975
     dc7c20ec03cadb34bb6345d8a42793a6: 1
     63d8224f55596ac499b6c087021ee4bb: -10000
   m_TransitionOverrides: {}

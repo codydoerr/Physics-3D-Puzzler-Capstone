@@ -17,11 +17,13 @@ public class MovementController : MonoBehaviour
     [SerializeField] float groundDistance = 0.4f;
     [SerializeField] LayerMask groundMask;
 
-    float stepCount;
-    private float deltaStep;
-    float axisMovement;
+    //float stepCount;
+    //private float deltaStep;
+    //float axisMovement;
     private GameObject footstepSound;
     public GameObject footstepPrefab;
+    public GameObject jumpPrefab;
+    private GameObject jumpSound;
 
     bool isGrounded;
     // Start is called before the first frame update
@@ -30,25 +32,21 @@ public class MovementController : MonoBehaviour
         playerCharacterController = GetComponent<CharacterController>();
         tempSpeedHoldForward = forwardWalkSpeed;
         tempSpeedHoldSide = sideWalkSpeed;
-        deltaStep = 0.75f;
         //axisMovement = Input.GetAxis("Vertical");
     }
 
     private void Footstep() 
     {
          
-                Debug.Log("footstep");
-                stepCount = Mathf.Lerp(stepCount, 1, deltaStep * Time.deltaTime);
+                //Debug.Log("footstep");
+                //stepCount = Mathf.Lerp(stepCount, 1, deltaStep * Time.deltaTime);
                 //Debug.Log(stepCount);
-                if (stepCount == 1)
-                {
-                    stepCount = 0;
 
-                }
-                if (stepCount == 1 && footstepSound != null) {
+                if (footstepSound == null) {
                 
                     footstepSound = Instantiate(footstepPrefab, transform.position, Quaternion.identity);
-                    Debug.Log("Footstep please");
+                    Debug.Log("Footstep");
+                    footstepSound.GetComponent<AudioSource>().pitch = (Random.Range(1.0f, 1.2f));
                 } else {
 
                 }
@@ -61,9 +59,14 @@ public class MovementController : MonoBehaviour
                 }
             
 
-            //Debug.Log(x + "," + z);
-                
-            
+            //Debug.Log(x + "," + z); 
+    }
+
+    private void Jump()
+    {
+        jumpSound = Instantiate(jumpPrefab, transform.position, Quaternion.identity);
+        jumpSound.GetComponent<AudioSource>().pitch = (Random.Range(1.0f, 1.2f));
+        Debug.Log("jump");
     }
 
     // Update is called once per frame
@@ -85,11 +88,12 @@ public class MovementController : MonoBehaviour
             if (Mathf.Abs(x + z) > 0 && isGrounded)
             {
                 GetComponent<PlayerAnimationController>().StartWalking();
-                Invoke("Footstep", 0.0f);
+                InvokeRepeating("Footstep", 0.1f, 3f);
             }
             else
             {
                 GetComponent<PlayerAnimationController>().EndWalking();
+                CancelInvoke();
             }
             if (Input.GetMouseButtonDown(0)) {
                 this.forwardWalkSpeed /= 4;
@@ -106,6 +110,7 @@ public class MovementController : MonoBehaviour
             {
                 GetComponent<PlayerAnimationController>().TriggerJump();
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * (gravity*gravScale));
+                Jump();
             }
             velocity.y += (gravity * gravScale) * Time.deltaTime;
 
