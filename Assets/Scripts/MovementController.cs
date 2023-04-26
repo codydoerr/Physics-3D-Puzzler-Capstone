@@ -30,19 +30,36 @@ public class MovementController : MonoBehaviour
         playerCharacterController = GetComponent<CharacterController>();
         tempSpeedHoldForward = forwardWalkSpeed;
         tempSpeedHoldSide = sideWalkSpeed;
-        deltaStep = 0.5f;
+        deltaStep = 0.75f;
         //axisMovement = Input.GetAxis("Vertical");
     }
 
-    public void Footstep() 
+    private void Footstep() 
     {
-         if (velocity.x > 0 || velocity.x < 0 || velocity.z > 0 || velocity.z < 0 && stepCount == 1)
-            {
+         
                 Debug.Log("footstep");
                 stepCount = Mathf.Lerp(stepCount, 1, deltaStep * Time.deltaTime);
-                Debug.Log(stepCount);
-                stepCount = 0;
-            }
+                //Debug.Log(stepCount);
+                if (stepCount == 1)
+                {
+                    stepCount = 0;
+
+                }
+                if (stepCount == 1 && footstepSound != null) {
+                
+                    footstepSound = Instantiate(footstepPrefab, transform.position, Quaternion.identity);
+                    Debug.Log("Footstep please");
+                } else {
+
+                }
+
+                if (footstepSound != null && footstepSound.GetComponent<AudioSource>().isPlaying) {
+                
+                } else {
+                
+                    Destroy(footstepSound);
+                }
+            
 
             //Debug.Log(x + "," + z);
                 
@@ -68,19 +85,7 @@ public class MovementController : MonoBehaviour
             if (Mathf.Abs(x + z) > 0 && isGrounded)
             {
                 GetComponent<PlayerAnimationController>().StartWalking();
-                if (footstepSound != null) {
-                
-                    footstepSound = Instantiate(footstepPrefab, transform.position, Quaternion.identity);
-                } else {
-
-                }
-
-                if (footstepSound != null && footstepSound.GetComponent<AudioSource>().isPlaying) {
-                
-                } else {
-                
-                    Destroy(footstepSound);
-                }
+                Invoke("Footstep", 0.0f);
             }
             else
             {

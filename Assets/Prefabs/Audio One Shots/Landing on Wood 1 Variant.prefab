@@ -65,12 +65,18 @@ PrefabInstance:
     - target: {fileID: 8115233598491528182, guid: 6ce3049e61ba9a647905f3878902de16,
         type: 3}
       propertyPath: m_Name
-      value: Landing on Wood 1
+      value: Landing on Wood 1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8675791166930111201, guid: 6ce3049e61ba9a647905f3878902de16,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: dbb6eaaa8eac3514e9251ba764385d7e, type: 3}
+    - target: {fileID: 8675791166930111201, guid: 6ce3049e61ba9a647905f3878902de16,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1779430024948270925, guid: 04303ca32d64e724f8c3bfaff4a89217,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce3049e61ba9a647905f3878902de16, type: 3}
