@@ -308,7 +308,7 @@ MonoBehaviour:
   inventoryAmmo:
   - {fileID: 1966743565730118755, guid: 3f51e7e5bf58f68478960001661cf173, type: 3}
   - {fileID: 1966743565730118755, guid: 02b8ff4ec4c65044995a7a72cf0f29cc, type: 3}
-  gM: {fileID: 0}
+  gM: {fileID: 3514612803503183340, guid: cc713646941989341b406cc4f1dc77ea, type: 3}
   tabletPrefab: {fileID: 4504284441054456467}
   camera: {fileID: 2042315924523115638}
   startingZoom: 0
@@ -316,6 +316,8 @@ MonoBehaviour:
   power: 20
   speedH: 2
   speedV: 2
+  slingShotPrefab: {fileID: 8079113797169617659, guid: 84d57b8674b015542aa08dac4f5ed12f,
+    type: 3}
 --- !u!114 &1479159824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +339,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  footstepPrefab: {fileID: 0}
+  footstepPrefab: {fileID: 7881010123372845224, guid: 4026ece96c5175944a47ed0f9583fa52,
+    type: 3}
+  jumpPrefab: {fileID: 2868430484687447455, guid: 92f808e904d76b142bd11b4ebbda8a1d,
+    type: 3}
 --- !u!114 &1603971369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042315924708035898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.86, z: 0}
+  m_LocalPosition: {x: 0, y: -1.131, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

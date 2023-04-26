@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -29340,6 +29340,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1479159823, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
+      propertyPath: slingShotPrefab
+      value: 
+      objectReference: {fileID: 8079113797169617659, guid: 84d57b8674b015542aa08dac4f5ed12f,
+        type: 3}
+    - target: {fileID: 1479159824, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
+      propertyPath: jumpPrefab
+      value: 
+      objectReference: {fileID: 2868430484687447455, guid: 92f808e904d76b142bd11b4ebbda8a1d,
+        type: 3}
     - target: {fileID: 1479159824, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
       propertyPath: footstepPrefab
       value: 
@@ -29358,7 +29368,7 @@ PrefabInstance:
     - target: {fileID: 2042315923641893297, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.178627
+      value: 1.564
       objectReference: {fileID: 0}
     - target: {fileID: 2042315923641893297, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
@@ -29404,6 +29414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042315924708035897, guid: a2a0db650b6671147a1dd3e271da196c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.211
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
