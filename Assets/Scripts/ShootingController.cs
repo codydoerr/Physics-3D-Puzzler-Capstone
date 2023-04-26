@@ -11,7 +11,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] GameObject gM;
     [SerializeField] GameObject tabletPrefab;
 
-    [SerializeField] Camera camera;
+    [SerializeField] new Camera camera;
 
     [SerializeField] float startingZoom;
     [SerializeField] float aimZoomDelta;
@@ -32,7 +32,7 @@ public class ShootingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isCamera = currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera;
+        bool isCamera = currentAmmo.GetComponent<AmmoType>().GetAmmoType() == AmmoType.Ammo.Camera;
         if (Input.GetKeyDown(KeyCode.Q) && !IsTabletActive())
         {
             tabletPrefab.SetActive(true);
@@ -86,9 +86,8 @@ public class ShootingController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (currentAmmo.GetComponent<AmmoType>().GetType() == AmmoType.Ammo.Camera)
+            if (currentAmmo.GetComponent<AmmoType>().GetAmmoType() == AmmoType.Ammo.Camera)
             {
-           
                 ammoLoaded = false;
                 placedCamera.GetComponent<AmmoType>().FireAmmo(power);
                 StartCoroutine(WaitForPlacedCamera());
@@ -97,7 +96,6 @@ public class ShootingController : MonoBehaviour
                 ammoLoaded = false;
                 loadedAmmo.GetComponent<AmmoType>().FireAmmo(power);
             }
-            placedCamera = null;
             loadedAmmo = null;
 
         }
@@ -112,10 +110,15 @@ public class ShootingController : MonoBehaviour
             Debug.Log("Armed camera");
         }
     }
-    private IEnumerator WaitForPlacedCamera(){
+    private IEnumerator WaitForPlacedCamera()
+    {
+
         yield return new WaitUntil(() => placedCamera.GetComponent<Rigidbody>().velocity == Vector3.zero);
+        Debug.Log("setactive");
         tabletPrefab.SetActive(true);
         tabletPrefab.GetComponent<TabletController>().SetCamera(placedCamera);
+        placedCamera = null;
+        Debug.Log("camset");
     }
 
     public bool IsTabletActive()

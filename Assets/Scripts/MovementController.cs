@@ -73,6 +73,10 @@ public class MovementController : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            if(velocity.y > -9.8f)
+            {
+                velocity.y = -9.8f;
+            }
         }
         if (!GetComponent<ShootingController>().IsTabletActive())
         {

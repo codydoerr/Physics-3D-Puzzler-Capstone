@@ -9,6 +9,8 @@ TagManager:
   - overgrown
   - pellet
   - Ground
+  - Key
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Effect
   - Door
   - CameraInvisible
-  - 
+  - TreeBreak
   - 
   - 
   - 

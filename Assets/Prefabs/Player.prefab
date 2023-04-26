@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 1479159824}
   - component: {fileID: 1603971369}
   - component: {fileID: 1792868956}
+  - component: {fileID: -6912880271233383058}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -281,13 +282,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.5
+  m_Height: 1.32
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -0.33, z: 0}
+  m_Center: {x: 0, y: -0.71, z: 0}
 --- !u!114 &1479159823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +369,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pAnim: {fileID: 7399848053888852877}
+--- !u!114 &-6912880271233383058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042315923641893302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5dee565a56b024b8c0a752a065713b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyToDoor: {fileID: 0}
+  unlockableDoor: {fileID: 0}
+  animator: {fileID: 0}
+  interactText: {fileID: 0}
 --- !u!1 &2042315924523115640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,8 +2880,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7486301684437646093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.076, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_LocalPosition: {x: 0.00000020559, y: -1.202, z: -0.0043397}
+  m_LocalScale: {x: 0.692223, y: 0.692223, z: 0.692223}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7489154584821642235}
