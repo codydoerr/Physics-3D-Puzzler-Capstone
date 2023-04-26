@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 8115233598491528182, guid: 6ce3049e61ba9a647905f3878902de16,
         type: 3}
       propertyPath: m_Name
-      value: Rock Hitting Wood 3
+      value: Rock Hitting Wood 3 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8675791166930111201, guid: 6ce3049e61ba9a647905f3878902de16,
         type: 3}
