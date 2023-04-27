@@ -5,12 +5,10 @@ using UnityEngine;
 public class TransitionController : MonoBehaviour
 {
     MainMenuController mmc;
-    private void Start()
+    public GameObject endgame;
+
+    public void LoadNextScene()
     {
-        mmc = GameObject.Find("MainMenuCanvas").GetComponent<MainMenuController>();
-    }
-    public void StartVideo()
-    {
-        mmc.StartVideo();
+       endgame.GetComponent<EndGame>().GoToNextScene();
     }
 }

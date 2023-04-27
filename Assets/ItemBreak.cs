@@ -29,8 +29,8 @@ public class ItemBreak : MonoBehaviour
                 if (isTree)
                 {
                     //GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Free;
-                    GetComponent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Free;
-                    GetComponent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Free;
+                    GetComponent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Limited;
+                    GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Limited;
                 }
                 else if (isWindow) {
                     Destroy(gameObject);

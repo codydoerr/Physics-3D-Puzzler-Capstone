@@ -26,7 +26,6 @@ public class InteractController : MonoBehaviour
     bool isElevator;
     bool isVent;
     bool isCamera;
-    bool teleported = false;
     public TextMeshProUGUI interactText;
     public Vector3 newPosition;
     public CharacterController controller;
@@ -71,14 +70,14 @@ public class InteractController : MonoBehaviour
             Elevator.GetComponent<CapsuleCollider>().enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && isVent && Bolt1 == null && Bolt2 == null && Bolt3 == null && Bolt4 == null && teleported == false)
+        if (Input.GetKeyDown(KeyCode.E) && isVent && Bolt1 == null && Bolt2 == null && Bolt3 == null && Bolt4 == null)
         {
             print(gameObject);
             controller.enabled = false; // disable controller temporarily
             transform.position = newPosition; // set new position
             controller.enabled = true; // re-enable controller
             interactText.enabled = false;
-            teleported = true;
+            isVent = false;
         }
     }
 
