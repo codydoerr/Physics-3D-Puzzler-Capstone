@@ -16,10 +16,13 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField] GameObject transition;
 
+    int vidState = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        StartVideo();
+        vidState = 0;
     }
 
     public void ExitGame()
@@ -33,6 +36,19 @@ public class MainMenuController : MonoBehaviour
     public void StartVideo()
     {
         vP.Play();
+        StartCoroutine(WaitForPlaying());
+    }
+    IEnumerator WaitForPlaying()
+    {
+        yield return new WaitUntil(() => vP.isPlaying);
+        vidState++;
+    }
+    void SetNextVid()
+    {
+        vP.clip = idleClip;
+        vP.Play();
+        vP.isLooping = true;
+        StartCoroutine(WaitForPlaying());
     }
     public void StartGame()
     {
@@ -41,6 +57,9 @@ public class MainMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!vP.isPlaying && vidState == 1)
+        {
+            SetNextVid();
+        }
     }
 }
