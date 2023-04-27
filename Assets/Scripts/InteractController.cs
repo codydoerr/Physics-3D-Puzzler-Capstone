@@ -77,6 +77,7 @@ public class InteractController : MonoBehaviour
             transform.position = newPosition; // set new position
             controller.enabled = true; // re-enable controller
             interactText.enabled = false;
+            isVent = false;
         }
     }
 
