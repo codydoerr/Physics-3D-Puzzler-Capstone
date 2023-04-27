@@ -54,7 +54,7 @@ public class PickupObjects : MonoBehaviour
                 pickedUp = true;
                 StartCoroutine(DisableGravTillDropped());
             }
-        }else if(!inRange || Input.GetKeyUp(KeyCode.E))
+        }else if(!inRange || Input.GetKeyUp(KeyCode.Mouse1))
         {
             pickedUp = false;
         }
