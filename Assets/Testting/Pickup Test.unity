@@ -298,6 +298,7 @@ MonoBehaviour:
   clip: {fileID: 0}
   staticAsset: {fileID: 0}
   connectedObject: {fileID: 0}
+  noteNumber: 1
 --- !u!135 &226309973
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -507,30 +508,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &708504997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2042315923641893302, guid: a2a0db650b6671147a1dd3e271da196c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1091362224}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &708505007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708504997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5dee565a56b024b8c0a752a065713b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KeyToDoor: {fileID: 0}
-  unlockableDoor: {fileID: 0}
-  Elevator: {fileID: 0}
-  doorAnimator: {fileID: 0}
-  elevatorAnimator: {fileID: 0}
-  interactText: {fileID: 1173839030}
 --- !u!1 &719604309
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,10 +778,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 809634408, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
-      propertyPath: camera
+    - target: {fileID: -6912880271233383058, guid: a2a0db650b6671147a1dd3e271da196c,
+        type: 3}
+      propertyPath: interactText
       value: 
-      objectReference: {fileID: 1976895676}
+      objectReference: {fileID: 1173839030}
+    - target: {fileID: 1479159825, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
+      propertyPath: m_Center.y
+      value: -0.525
+      objectReference: {fileID: 0}
     - target: {fileID: 2042315923641893297, guid: a2a0db650b6671147a1dd3e271da196c,
         type: 3}
       propertyPath: m_RootOrder
@@ -864,26 +846,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486152447785428615, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486156687340062893, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486433213214791765, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486847868820776817, guid: a2a0db650b6671147a1dd3e271da196c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a0db650b6671147a1dd3e271da196c, type: 3}
@@ -1032,16 +994,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 715481551143059545, guid: 150721fde78e943479bcb1dc4d1e73b1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 715481551143059547, guid: 150721fde78e943479bcb1dc4d1e73b1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 715481551510473620, guid: 150721fde78e943479bcb1dc4d1e73b1,
         type: 3}
       propertyPath: m_Name
@@ -1159,12 +1111,6 @@ PrefabInstance:
       objectReference: {fileID: 1976895677}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150721fde78e943479bcb1dc4d1e73b1, type: 3}
---- !u!1 &1976895676 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2042315924523115640, guid: a2a0db650b6671147a1dd3e271da196c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1091362224}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1976895677 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2042315924523115638, guid: a2a0db650b6671147a1dd3e271da196c,
