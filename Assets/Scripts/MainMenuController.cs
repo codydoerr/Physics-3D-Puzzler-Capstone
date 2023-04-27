@@ -21,6 +21,7 @@ public class MainMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartVideo();
         vidState = 0;
     }
 
@@ -35,6 +36,11 @@ public class MainMenuController : MonoBehaviour
     public void StartVideo()
     {
         vP.Play();
+        StartCoroutine(WaitForPlaying());
+    }
+    IEnumerator WaitForPlaying()
+    {
+        yield return new WaitUntil(() => vP.isPlaying);
         vidState++;
     }
     void SetNextVid()
@@ -42,7 +48,7 @@ public class MainMenuController : MonoBehaviour
         vP.clip = idleClip;
         vP.Play();
         vP.isLooping = true;
-        vidState++;
+        StartCoroutine(WaitForPlaying());
     }
     public void StartGame()
     {
