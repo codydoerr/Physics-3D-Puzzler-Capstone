@@ -24,6 +24,8 @@ public class ShootingController : MonoBehaviour
     float yaw = 0.0f;
     float pitch = 0.0f;
 
+    bool hasCamera;
+
     public GameObject slingShotPrefab;
     private GameObject ssSound;
     // Start is called before the first frame update
@@ -39,11 +41,11 @@ public class ShootingController : MonoBehaviour
     void Update()
     {
         bool isCamera = currentAmmo.GetComponent<AmmoType>().GetAmmoType() == AmmoType.Ammo.Camera;
-        if (Input.GetKeyDown(KeyCode.Q) && !IsTabletActive())
+        if (Input.GetKeyDown(KeyCode.Q) && !IsTabletActive() && hasCamera)
         {
             tabletPrefab.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && IsTabletActive())
+        else if (Input.GetKeyDown(KeyCode.Q) && IsTabletActive() && hasCamera)
         {
             tabletPrefab.SetActive(false);
         }
@@ -112,7 +114,7 @@ public class ShootingController : MonoBehaviour
             SwitchAmmo(0);
             Debug.Log("Armed normal_stone");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && hasCamera)
         {
             SwitchAmmo(1);
             Debug.Log("Armed camera");
