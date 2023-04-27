@@ -13,6 +13,10 @@ public class InteractController : MonoBehaviour
     public GameObject unlockableDoor;
     [SerializeField] GameObject Elevator;
     [SerializeField] GameObject Vent;
+    [SerializeField] GameObject Bolt1;
+    [SerializeField] GameObject Bolt2;
+    [SerializeField] GameObject Bolt3;
+    [SerializeField] GameObject Bolt4;
     public Animator doorAnimator;
     [SerializeField] Animator elevatorAnimator;
     private bool hasKey;
@@ -58,10 +62,9 @@ public class InteractController : MonoBehaviour
             Elevator.GetComponent<CapsuleCollider>().enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && isVent)
+        if (Input.GetKeyDown(KeyCode.E) && isVent && Bolt1 == null && Bolt2 == null && Bolt3 == null && Bolt4 == null)
         {
             print(gameObject);
-            //gameObject.GetComponent<Rigidbody>().position = newPosition;
             controller.enabled = false; // disable controller temporarily
             transform.position = newPosition; // set new position
             controller.enabled = true; // re-enable controller
@@ -82,7 +85,7 @@ public class InteractController : MonoBehaviour
             interactText.enabled = true;
             isElevator = true;
         }
-        if (other.gameObject == Vent)
+        if (other.gameObject == Vent && Bolt1 == null && Bolt2 == null && Bolt3 == null && Bolt4 == null)
         {
             interactText.enabled = true;
             isVent = true;
@@ -111,7 +114,7 @@ public class InteractController : MonoBehaviour
             interactText.enabled = false;
             isElevator = false;
         }
-        if (other.gameObject == Vent)
+        if (other.gameObject == Vent && Bolt1 == null && Bolt2 == null && Bolt3 == null && Bolt4 == null)
         {
             interactText.enabled = false;
             isVent = false;
