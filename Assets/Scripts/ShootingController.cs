@@ -161,6 +161,10 @@ public class ShootingController : MonoBehaviour
     }
     private void SwitchAmmo(int type)
     {
-        currentAmmo = inventoryAmmo[type];
+        if (currentAmmo != inventoryAmmo[type])
+        {
+            GameObject.Find("HUD").GetComponent<HUDController>().SwapCrosshair();
+            currentAmmo = inventoryAmmo[type];
+        }
     }
 }
