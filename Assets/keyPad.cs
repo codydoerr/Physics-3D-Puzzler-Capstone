@@ -10,15 +10,19 @@ public class keyPad : MonoBehaviour
     [SerializeField]GameObject clickPrefab;
     [SerializeField] GameObject wrongPrefab;
     [SerializeField] GameObject rightPrefab;
+    [SerializeField] GameObject door;
+    bool doorOpen = false;
 
     public void keyPress(string key)
     {
         Instantiate(clickPrefab, transform.position, Quaternion.identity);
         sequence += key;
-        if (sequence.Length == answer.Length && sequence == answer)
+        if (sequence.Length == answer.Length && sequence == answer && doorOpen == false)
         {
             Instantiate(rightPrefab, transform.position, Quaternion.identity);
+            door.transform.Rotate(0.0f, 100.0f, 0.0f, Space.Self);
             Debug.Log("Open Door");
+            doorOpen = true;
         } else if (sequence.Length == answer.Length)
         {
             Instantiate(wrongPrefab, transform.position, Quaternion.identity);
