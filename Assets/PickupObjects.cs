@@ -46,7 +46,7 @@ public class PickupObjects : MonoBehaviour
         layerMask = ~layerMask;
         RaycastHit hit;
 
-        if (inRange && Input.GetKey(KeyCode.E) && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
+        if (inRange && Input.GetKey(KeyCode.Mouse1) && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
             Debug.Log("reaching out");
             if (hit.collider.gameObject.GetComponent<PickupObjects>() != null)
@@ -64,7 +64,7 @@ public class PickupObjects : MonoBehaviour
     IEnumerator DisableGravTillDropped()
     {
         GetComponent<Rigidbody>().useGravity = false;
-        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse1));
         GetComponent<Rigidbody>().useGravity = true;
     }
 }

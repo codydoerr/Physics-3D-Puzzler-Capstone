@@ -8,6 +8,7 @@ public class StemController : MonoBehaviour
     public AudioSource audioSource;
     public float stemVol;
     public float deltaVol;
+    public float maxVol;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,15 +28,15 @@ public class StemController : MonoBehaviour
     {
         if (collision.tag == "pellet") 
         {
-            stemVol = Mathf.Lerp(stemVol, 1, deltaVol * Time.deltaTime);
-            Debug.Log(stemVol);
+            stemVol = Mathf.Lerp(stemVol, maxVol, deltaVol * Time.deltaTime);
+            //Debug.Log(stemVol);
             Debug.Log("trigger hit!");
         }
 
         if (collision.tag == "Player") 
         {
-            stemVol = Mathf.Lerp(stemVol, 1, deltaVol * Time.deltaTime);
-            Debug.Log(stemVol);
+            stemVol = Mathf.Lerp(stemVol, maxVol, deltaVol * Time.deltaTime);
+            //Debug.Log(stemVol);
             Debug.Log("player trigger");
         }
     }

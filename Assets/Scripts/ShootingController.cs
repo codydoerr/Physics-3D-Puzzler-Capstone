@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShootingController : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] GameObject[] inventoryAmmo;
     [SerializeField] GameObject gM;
     [SerializeField] GameObject tabletPrefab;
+    [SerializeField] GameObject cameraPickup;
 
     [SerializeField] new Camera camera;
 
@@ -23,6 +26,10 @@ public class ShootingController : MonoBehaviour
     [SerializeField] float speedV = 2.0f;
     float yaw = 0.0f;
     float pitch = 0.0f;
+
+    bool hasCamera;
+    bool inCameraBox;
+    public TextMeshProUGUI interactText;
 
     public GameObject slingShotPrefab;
     private GameObject ssSound;
@@ -38,12 +45,16 @@ public class ShootingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inCameraBox && Input.GetKeyDown(KeyCode.E)) 
+        {
+            hasCamera = true;
+        }
         bool isCamera = currentAmmo.GetComponent<AmmoType>().GetAmmoType() == AmmoType.Ammo.Camera;
-        if (Input.GetKeyDown(KeyCode.Q) && !IsTabletActive())
+        if (Input.GetKeyDown(KeyCode.Q) && !IsTabletActive() && hasCamera)
         {
             tabletPrefab.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && IsTabletActive())
+        else if (Input.GetKeyDown(KeyCode.Q) && IsTabletActive() && hasCamera)
         {
             tabletPrefab.SetActive(false);
         }
@@ -112,12 +123,23 @@ public class ShootingController : MonoBehaviour
             SwitchAmmo(0);
             Debug.Log("Armed normal_stone");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && hasCamera)
         {
             SwitchAmmo(1);
             Debug.Log("Armed camera");
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == cameraPickup) inCameraBox = true;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == cameraPickup) inCameraBox = false;
+    }
+
     private IEnumerator WaitForPlacedCamera()
     {
 
