@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShootingController : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] GameObject[] inventoryAmmo;
     [SerializeField] GameObject gM;
     [SerializeField] GameObject tabletPrefab;
+    [SerializeField] GameObject cameraPickup;
 
     [SerializeField] new Camera camera;
 
@@ -25,6 +28,8 @@ public class ShootingController : MonoBehaviour
     float pitch = 0.0f;
 
     bool hasCamera;
+    bool inCameraBox;
+    public TextMeshProUGUI interactText;
 
     public GameObject slingShotPrefab;
     private GameObject ssSound;
@@ -40,6 +45,10 @@ public class ShootingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inCameraBox && Input.GetKeyDown(KeyCode.E)) 
+        {
+            hasCamera = true;
+        }
         bool isCamera = currentAmmo.GetComponent<AmmoType>().GetAmmoType() == AmmoType.Ammo.Camera;
         if (Input.GetKeyDown(KeyCode.Q) && !IsTabletActive() && hasCamera)
         {
@@ -120,6 +129,17 @@ public class ShootingController : MonoBehaviour
             Debug.Log("Armed camera");
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == cameraPickup) inCameraBox = true;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == cameraPickup) inCameraBox = false;
+    }
+
     private IEnumerator WaitForPlacedCamera()
     {
 
