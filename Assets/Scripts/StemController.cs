@@ -29,14 +29,14 @@ public class StemController : MonoBehaviour
         if (collision.tag == "pellet") 
         {
             stemVol = Mathf.Lerp(stemVol, maxVol, deltaVol * Time.deltaTime);
-            Debug.Log(stemVol);
+            //Debug.Log(stemVol);
             Debug.Log("trigger hit!");
         }
 
         if (collision.tag == "Player") 
         {
             stemVol = Mathf.Lerp(stemVol, maxVol, deltaVol * Time.deltaTime);
-            Debug.Log(stemVol);
+            //Debug.Log(stemVol);
             Debug.Log("player trigger");
         }
     }
