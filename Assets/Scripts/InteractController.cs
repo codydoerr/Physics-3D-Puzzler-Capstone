@@ -12,13 +12,17 @@ public class InteractController : MonoBehaviour
     public GameObject KeyToDoor;
     public GameObject unlockableDoor;
     [SerializeField] GameObject Elevator;
+    [SerializeField] GameObject Vent;
     public Animator doorAnimator;
     [SerializeField] Animator elevatorAnimator;
     private bool hasKey;
     private bool insideBox;
     private bool insideDoorBox;
     bool isElevator;
+    bool isVent;
     public TextMeshProUGUI interactText;
+    public Vector3 newPosition;
+    public CharacterController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +57,16 @@ public class InteractController : MonoBehaviour
             interactText.enabled = false;
             Elevator.GetComponent<CapsuleCollider>().enabled = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && isVent)
+        {
+            print(gameObject);
+            //gameObject.GetComponent<Rigidbody>().position = newPosition;
+            controller.enabled = false; // disable controller temporarily
+            transform.position = newPosition; // set new position
+            controller.enabled = true; // re-enable controller
+            interactText.enabled = false;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -67,6 +81,11 @@ public class InteractController : MonoBehaviour
         {
             interactText.enabled = true;
             isElevator = true;
+        }
+        if (other.gameObject == Vent)
+        {
+            interactText.enabled = true;
+            isVent = true;
         }
         if (other.gameObject == unlockableDoor && hasKey == true)
         { 
@@ -91,6 +110,11 @@ public class InteractController : MonoBehaviour
         {
             interactText.enabled = false;
             isElevator = false;
+        }
+        if (other.gameObject == Vent)
+        {
+            interactText.enabled = false;
+            isVent = false;
         }
         if (other.gameObject == unlockableDoor && hasKey == true)
         {
