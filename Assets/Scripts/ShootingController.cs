@@ -31,7 +31,10 @@ public class ShootingController : MonoBehaviour
     {
         gM = GameObject.Find("GameManager");
     }
-
+    public GameObject GetLoadPoint()
+    {
+        return loadPoint;
+    }
     // Update is called once per frame
     void Update()
     {
