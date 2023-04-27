@@ -28,10 +28,13 @@ public class EnvironmentController : MonoBehaviour
     [SerializeField] GameObject staticAsset;
     [SerializeField] GameObject connectedObject;
     bool isUsable;
+    [SerializeField] int noteNumber;
+    GameObject hud;
     
     // Start is called before the first frame update
     void Start()
     {
+        hud = GameObject.Find("HUD");
         isUsable = false;
         if (eT == EnvironmentType.Door)
         {
@@ -143,8 +146,11 @@ public class EnvironmentController : MonoBehaviour
         }
         if (eT == EnvironmentType.Pickups)
         {
-            //GameObject.Find("GameManager").GetComponent<GameManager>().AddNote(this.gameObject);
-            Destroy(gameObject);
+            if (noteNumber > 0)
+            {
+                hud.GetComponent<HUDController>().ActivateNote(noteNumber);
+            }
+
         }
         if (eT == EnvironmentType.Windows)
         {
