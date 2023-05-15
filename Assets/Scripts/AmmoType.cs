@@ -25,6 +25,7 @@ public class AmmoType : MonoBehaviour
         if (currentAmmo == Ammo.Normal)
         {
             gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * power, ForceMode.Impulse);
+            Destroy(gameObject, 5f);
         }
         else if (currentAmmo == Ammo.Gravity)
         {
